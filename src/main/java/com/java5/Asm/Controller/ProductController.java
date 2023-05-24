@@ -14,6 +14,6 @@ public class ProductController {
 
     @RequestMapping(path = "/product/add-product")
     public String addProduct(){
-        return "redirect:/admin/add-product";
+        return "/admin/add-product";
     }
 }
