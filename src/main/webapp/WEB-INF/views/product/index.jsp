@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <!DOCTYPE html>
     <html lang="en">
 
@@ -360,7 +361,8 @@
                 </div>
             </nav>
 
-            <div ng-view></div>
+            
+			<%@ include file="../product/home.jsp" %>
             <!-- <div class="container" style="background-color: #ffffff; display: flex;">
                     <div class="img-login col-md-3" style="background-color: #fbe9e7; ">
                         <img src="https://hoanghamobile.com/Content/web/img/login-bg.png" alt="" class="img-fluid pt-5">
