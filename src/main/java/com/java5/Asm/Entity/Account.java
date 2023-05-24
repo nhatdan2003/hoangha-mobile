@@ -17,7 +17,7 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String userName;
-    private String passWord;
+    private String fullName;
     @NaturalId(mutable = true)
     private String email;
     private String phoneNumber;
@@ -29,9 +29,9 @@ public class Account {
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private Collection<Role> roles;
 
-    public Account(String userName, String passWord, String email, String phoneNumber, String password, Collection<Role> roles) {
+    public Account(String userName, String fullName, String email, String phoneNumber, String password, Collection<Role> roles) {
         this.userName = userName;
-        this.passWord = passWord;
+        this.fullName = fullName;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.password = password;

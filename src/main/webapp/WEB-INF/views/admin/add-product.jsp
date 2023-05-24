@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,18 +11,10 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Roboto:400,700"
     />
-    <!-- https://fonts.google.com/specimen/Roboto -->
-    <link rel="stylesheet" href="css/fontawesome.min.css" />
-    <!-- https://fontawesome.com/ -->
-    <link rel="stylesheet" href="jquery-ui-datepicker/jquery-ui.min.css" type="text/css" />
-    <!-- http://api.jqueryui.com/datepicker/ -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <!-- https://getbootstrap.com/ -->
-    <link rel="stylesheet" href="css/templatemo-style.css">
-    <!--
-	Product Admin CSS Template
-	https://templatemo.com/tm-524-product-admin
-	-->
+    <link rel="stylesheet" href="CSS/fontawesome.min.css" />
+    <link rel="stylesheet" href="jquery-ui-datepicker/jquery-ui.min.css"/>
+    <link rel="stylesheet" href="CSS/bootstrap.min.css" />
+    <link rel="stylesheet" href="CSS/templatemo-style.css">
   </head>
 
   <body>
@@ -228,11 +220,11 @@
         </div>
     </footer> 
 
-    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="JSON/jquery-3.3.1.min.js"></script>
     <!-- https://jquery.com/download/ -->
     <script src="jquery-ui-datepicker/jquery-ui.min.js"></script>
     <!-- https://jqueryui.com/download/ -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="JSON/bootstrap.min.js"></script>
     <!-- https://getbootstrap.com/ -->
     <script>
       $(function() {
