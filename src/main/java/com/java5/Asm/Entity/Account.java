@@ -24,9 +24,9 @@ public class Account {
     private String password;
     private boolean isEnabled = false;
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    @JoinTable(name = "account_roles",
+            joinColumns = @JoinColumn(name = "account_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "account_id", referencedColumnName = "id"))
     private Collection<Role> roles;
 
     public Account(String userName, String fullName, String email, String phoneNumber, String password, Collection<Role> roles) {
