@@ -21,6 +21,8 @@ public class Product {
     private String nameProduct;
     private Double price;
     private String note;
+    @ManyToOne
+    @JoinColumn(name = "address_id")
     private String type;
     private String image;
     private Date date;
