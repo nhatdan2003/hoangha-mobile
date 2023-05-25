@@ -12,11 +12,11 @@
       href="https://fonts.googleapis.com/css?family=Roboto:400,700"
     />
     <!-- https://fonts.google.com/specimen/Open+Sans -->
-    <link rel="stylesheet" href="CSS/fontawesome.min.css" />
+    <link rel="stylesheet" href="/CSS/fontawesome.min.css" />
     <!-- https://fontawesome.com/ -->
-    <link rel="stylesheet" href="CSS/bootstrap.min.css" />
+    <link rel="stylesheet" href="/CSS/bootstrap.min.css" />
     <!-- https://getbootstrap.com/ -->
-    <link rel="stylesheet" href="CSS/templatemo-style.css">
+    <link rel="stylesheet" href="/CSS/templatemo-style.css">
     <!--
 	Product Admin CSS Template
 	https://templatemo.com/tm-524-product-admin
@@ -28,7 +28,7 @@
       <nav class="navbar navbar-expand-xl">
         <div class="container h-100">
           <a class="navbar-brand" href="index.html">
-            <h1 class="tm-site-title mb-0">Product Admin</h1>
+           <!--  <h1 class="tm-site-title mb-0"> Product Admin</h1> -->
           </a>
           <button
             class="navbar-toggler ml-auto mr-0"
@@ -170,5 +170,6 @@
     <!-- https://jquery.com/download/ -->
     <script src="${pageContext.request.contextPath}js/bootstrap.min.js"></script>
     <!-- https://getbootstrap.com/ -->
+    
   </body>
 </html>
