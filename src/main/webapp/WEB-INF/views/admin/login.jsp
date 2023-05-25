@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -70,13 +71,13 @@
                 </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="products.html">
+                <a class="nav-link" href="products">
                   <i class="fas fa-shopping-cart"></i> Products
                 </a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="accounts.html">
+                <a class="nav-link" href="accounts">
                   <i class="far fa-user"></i> Accounts
                 </a>
               </li>

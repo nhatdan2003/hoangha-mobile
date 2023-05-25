@@ -59,14 +59,13 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="products.html">
+                            <a class="nav-link" href="hoanghamobie/products">
                                 <i class="fas fa-shopping-cart"></i>
                                 Products
                             </a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link" href="accounts.html">
+                            <a class="nav-link" href="hoanghamobie/accounts">
                                 <i class="far fa-user"></i>
                                 Accounts
                             </a>
@@ -88,7 +87,7 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link d-block" href="login.html">
+                            <a class="nav-link d-block" href="hoanghamobie/login">
                                 Admin, <b>Logout</b>
                             </a>
                         </li>
