@@ -18,7 +18,7 @@ public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long categoryId;
-        @OneToMany(mappedBy = "categoryName", cascade = CascadeType.ALL)
+     
 	@Column(columnDefinition = "nvarchar(255)")
 	private String categoryName;
 }
