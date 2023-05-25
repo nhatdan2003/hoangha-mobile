@@ -21,9 +21,6 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long role_id;
     private String name;
-    @OneToMany(mappedBy = "address", cascade = CascadeType.ALL)
-    
-    private Collection<Product> persons;
     public Role(String name) {
         this.name = name;
     }
