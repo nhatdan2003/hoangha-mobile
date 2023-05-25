@@ -12,11 +12,11 @@
       href="https://fonts.googleapis.com/css?family=Roboto:400,700"
     />
     <!-- https://fonts.google.com/specimen/Roboto -->
-    <link rel="stylesheet" href="CSS/fontawesome.min.css" />
+    <link rel="stylesheet" href="/CSS/fontawesome.min.css" />
     <!-- https://fontawesome.com/ -->
-    <link rel="stylesheet" href="CSS/bootstrap.min.css" />
+    <link rel="stylesheet" href="/CSS/bootstrap.min.css" />
     <!-- https://getbootstrap.com/ -->
-    <link rel="stylesheet" href="CSS/templatemo-style.css">
+    <link rel="stylesheet" href="/CSS/templatemo-style.css">
     <!--
 	Product Admin CSS Template
 	https://templatemo.com/tm-524-product-admin
@@ -263,9 +263,9 @@
       </div>
     </footer>
 
-    <script src="JSON/jquery-3.3.1.min.js"></script>
+    <script src="/JSON/jquery-3.3.1.min.js"></script>
     <!-- https://jquery.com/download/ -->
-    <script src="JSON/bootstrap.min.js"></script>
+    <script src="/JSON/bootstrap.min.js"></script>
     <!-- https://getbootstrap.com/ -->
     <script>
       $(function() {
