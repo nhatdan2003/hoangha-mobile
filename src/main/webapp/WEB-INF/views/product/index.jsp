@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <!DOCTYPE html>
     <html lang="en">
 
@@ -59,7 +60,7 @@
                                         <a class="nav-link" href="#">Tra cứu đơn hàng</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Đăng nhập</a>
+                                        <a class="nav-link" href="hoanghamobie/login" >Đăng nhập</a>
                                     </li>
 
                                 </ul>
@@ -95,7 +96,9 @@
                                         <div class="row w-100 ms-1 border border-light rounded rounded-5">
                                             <div class="col-4"> <i class="fa-regular fa-user " style="color: #f4f4f4; height: 1.5rem; width: 1.5rem;"></i></div>
                                             <div class="col-8 mb-2">
-                                                <div class="row"> <h3 style="color: white">Đăng Nhập </h3></div>
+                                                <div class="row"> 
+                                                <a style="color: white" href="hoanghamobie/login" >Đăng Nhập </a>
+                                                </div>
                                                 <div class="row" > <span style="color: white">Để Nhận Nhiều Ưu Đãi</span></div>
                                                
                                             </div>
@@ -360,7 +363,8 @@
                 </div>
             </nav>
 
-            <div ng-view></div>
+            
+			<%@ include file="../product/home.jsp" %>
             <!-- <div class="container" style="background-color: #ffffff; display: flex;">
                     <div class="img-login col-md-3" style="background-color: #fbe9e7; ">
                         <img src="https://hoanghamobile.com/Content/web/img/login-bg.png" alt="" class="img-fluid pt-5">
