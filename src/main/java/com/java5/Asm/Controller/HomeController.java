@@ -22,12 +22,12 @@ public class HomeController {
 		return "admin/products";
 	}
 
-	@RequestMapping("hoanghamobie/add-products")
+	@RequestMapping("hoanghamobie/add-product")
 	public String addProduct() {
 		return "admin/add-product";
 	}
 
-	@RequestMapping("hoanghamobie/edit-products")
+	@RequestMapping("hoanghamobie/edit-product")
 	public String editProduct() {
 		return "admin/edit-product";
 	}

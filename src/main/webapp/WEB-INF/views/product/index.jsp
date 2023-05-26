@@ -26,7 +26,7 @@
 
         <!-- <div class="row"> -->
         <span class="icon-truck"></span>
-        <header>
+        <header class="pt-3 pt-xl-0">
 
             <div class="container-fluid">
                 <div class="row top-navigation  d-none  d-xl-flex  ">
@@ -120,13 +120,13 @@
                                             SẢN PHẨM
                                           </a>
                                           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li><a class="dropdown-item" href="#">Túi Đan Handmade</a></li>
-                                            <li><a class="dropdown-item" href="#">Charm Decor</a></li>
+                                            <li><a class="dropdown-item" href="#">#####</a></li>
+                                            <li><a class="dropdown-item" href="#">#####</a></li>
                                             <li>
                                               <hr class="dropdown-divider" />
                                             </li>
                                             <li>
-                                              <a class="dropdown-item" href="#">Túi Cỏ Bàng</a>
+                                              <a class="dropdown-item" href="#">####</a>
                                             </li>
                                           </ul>
                                         </li>
@@ -193,8 +193,8 @@
                                  <div class="iteam-order col-xl-6  pt-2 text-center"
                                     style=" border-radius: 10px; border: 3px #00483d;">
                                     <span class="material-symbols-outlined"
-                                     style="font-size: 42px; color: #00483e; ">shopping_cart<a href="#!cartProduct"
-                                         style="color: orange ;font-size: 20px; font-weight: bold;  ">{{cart.length}}</a></span>
+                                     style="font-size: 42px; color: #00483e; ">shopping_cart<a href="hoanghamobie/cartproduct"
+                                         style="color: orange ;font-size: 20px; font-weight: bold;  ">0</a></span>
                                 </div>  
 
 
@@ -211,10 +211,10 @@
 
 
 
-        <div class="menu-product" style="background-color: #f4f4f4;">
+        <div class="menu-product " style="background-color: #f4f4f4;">
             <!-- hiện thi -->
-            <nav>
-                <div class="container menu-pro pt-4">
+            <nav class="">
+                <div class="container menu-pro d-none d-xl-flex  pt-4">
                     <ul>
                         <li>
                             <a href="">

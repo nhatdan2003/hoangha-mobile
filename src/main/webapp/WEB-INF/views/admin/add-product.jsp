@@ -11,10 +11,10 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Roboto:400,700"
     />
-    <link rel="stylesheet" href="CSS/fontawesome.min.css" />
-    <link rel="stylesheet" href="jquery-ui-datepicker/jquery-ui.min.css"/>
-    <link rel="stylesheet" href="CSS/bootstrap.min.css" />
-    <link rel="stylesheet" href="CSS/templatemo-style.css">
+    <link rel="stylesheet" href="/CSS/fontawesome.min.css" />
+    <link rel="stylesheet" href="/jquery-ui-datepicker/jquery-ui.min.css"/>
+    <link rel="stylesheet" href="/CSS/bootstrap.min.css" />
+    <link rel="stylesheet" href="/CSS/templatemo-style.css">
   </head>
 
   <body>
@@ -220,11 +220,11 @@
         </div>
     </footer> 
 
-    <script src="JSON/jquery-3.3.1.min.js"></script>
+    <script src="/JSON/jquery-3.3.1.min.js"></script>
     <!-- https://jquery.com/download/ -->
-    <script src="jquery-ui-datepicker/jquery-ui.min.js"></script>
+    <script src="/jquery-ui-datepicker/jquery-ui.min.js"></script>
     <!-- https://jqueryui.com/download/ -->
-    <script src="JSON/bootstrap.min.js"></script>
+    <script src="/JSON/bootstrap.min.js"></script>
     <!-- https://getbootstrap.com/ -->
     <script>
       $(function() {

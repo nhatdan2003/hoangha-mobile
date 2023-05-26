@@ -68,7 +68,7 @@
 						</table>
 					</div>
 					<!-- table container -->
-					<a href=" " class="btn btn-primary btn-block text-uppercase mb-3">Add
+					<a href="add-product" class="btn btn-primary btn-block text-uppercase mb-3">Add
 						new product</a>
 					<button class="btn btn-primary btn-block text-uppercase">
 						Delete selected products</button>
