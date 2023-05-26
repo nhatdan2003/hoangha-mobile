@@ -32,7 +32,7 @@ public class HomeController {
 		return "admin/edit-product";
 	}
 
-	@RequestMapping("hoanghamobie/accounts")
+	@RequestMapping("hoanghamobie/account")
 	public String account() {
 		return "admin/account";
 	}
