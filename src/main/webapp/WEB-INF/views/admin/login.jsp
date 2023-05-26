@@ -34,7 +34,7 @@
 					aria-label="Toggle navigation">
 					<i class="fas fa-bars tm-nav-icon"></i>
 				</button>
-				<%@ include file="/WEB-INF//views/admin/header.jsp" %>
+				<%@ include file="/WEB-INF/views/admin/header.jsp" %>
 				<div class="container tm-mt-big tm-mb-big">
 					<div class="row">
 						<div class="col-12 mx-auto tm-login-col">
