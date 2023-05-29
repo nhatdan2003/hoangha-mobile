@@ -6,13 +6,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/hoanghamobie")
 public class HomeController {
-	@GetMapping("hoanghamobile")
+	@GetMapping("/hoanghamobie")
 	public String test() {
 		return "product/index";
 	}
 
-	@RequestMapping("hoanghamobie/login")
+	@RequestMapping("/login")
 	public String Login() {
 		return "admin/login";
 	}
