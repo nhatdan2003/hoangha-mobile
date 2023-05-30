@@ -29,7 +29,7 @@ public class Account {
             joinColumns = @JoinColumn(name = "account_id", referencedColumnName = "account_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "role_id"))
     private Collection<Role> roles;
-
+    //khanh pro pro
     public Account(String userName, String fullName, String email, String phoneNumber, String password, Collection<Role> roles) {
         this.userName = userName;
         this.fullName = fullName;
