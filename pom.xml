@@ -83,7 +83,7 @@
 			<version>4.0.1</version>
 			<scope>provided</scope>
 		</dependency>
-<<<<<<< HEAD
+
 		<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
 <dependency>
     <groupId>com.h2database</groupId>
@@ -92,8 +92,6 @@
     <scope>test</scope>
 </dependency>
 
-	
-=======
 		<dependency>
       		<groupId>org.springframework.boot</groupId>
       		<artifactId>spring-boot-starter-security</artifactId>
@@ -107,7 +105,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
->>>>>>> c79bb6f36ad5f65b254d219c173505adced915c2
 	</dependencies>
 
 	<build>

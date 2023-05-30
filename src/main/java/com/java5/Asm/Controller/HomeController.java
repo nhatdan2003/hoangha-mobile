@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/hoanghamobie")
 public class HomeController {
-<<<<<<< HEAD
+	
     @GetMapping("hoanghamobile")
     public String test(){
         return "product/index";
@@ -18,19 +18,8 @@ public class HomeController {
     public String Login() {
     	return "admin/login";
     }
-    
-    
-    
-=======
-	@GetMapping("/hoanghamobie")
-	public String test() {
-		return "product/index";
-	}
 
-	@RequestMapping("/login")
-	public String Login() {
-		return "admin/login";
-	}
+
 
 	@RequestMapping("hoanghamobie/products")
 	public String Product() {
@@ -67,5 +56,5 @@ public class HomeController {
 		return "product/findproduct";
 	}
 
->>>>>>> c79bb6f36ad5f65b254d219c173505adced915c2
+
 }
