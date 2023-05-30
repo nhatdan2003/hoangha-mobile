@@ -8,16 +8,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/hoanghamobie")
 public class HomeController {
-	
-    @GetMapping("hoanghamobile")
-    public String test(){
-        return "product/index";
-    }
-    
+
     @RequestMapping("hoanghamobie/login")
     public String Login() {
     	return "admin/login";
     }
+
+
+	@GetMapping("/hoanghamobie")
+	public String test() {
+		return "product/index";
+	}
 
 
 

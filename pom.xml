@@ -92,7 +92,10 @@
     <scope>test</scope>
 </dependency>
 
-		<dependency>
+
+
+<!-- 		<dependency>
+>>>>>>> 72a934ee73f3c85d5b3651f1010ab5c8c84ff89a
       		<groupId>org.springframework.boot</groupId>
       		<artifactId>spring-boot-starter-security</artifactId>
     	</dependency>
@@ -104,7 +107,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
+<<<<<<< HEAD
 		</dependency>
+=======
+		</dependency> -->
+
 	</dependencies>
 
 	<build>
