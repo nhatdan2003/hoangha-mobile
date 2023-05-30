@@ -64,18 +64,18 @@
             </a>
         </div>
     </div>
-    <div class="container">
+    <div class="container d-flex justify-content-center align-items-center">
         <div class="row mt-5">
-            <div class="col-sm-3">
+            <div class="col-xl-3 col-12">
                 <img src="https://cdn.hoanghamobile.com/i/home/Uploads/2023/02/20/sanphamhot-a73.png" alt="" class="img-fluid">
             </div>
-            <div class="col-sm-3">
+            <div class="col-xl-3 col-12">
                 <img src="https://cdn.hoanghamobile.com/i/home/Uploads/2023/02/01/sanphamhot-apple.png" alt="" class="img-fluid">
             </div>
-            <div class="col-sm-3">
+            <div class="col-xl-3 col-12">
                 <img src="https://cdn.hoanghamobile.com/i/home/Uploads/2023/01/07/paddd.png" alt="" class="img-fluid">
             </div>
-            <div class="col-sm-3">
+            <div class="col-xl-3 col-12">
                 <img src="https://cdn.hoanghamobile.com/i/home/Uploads/2023/02/20/sanphamhot-12-lite.png" alt="" class="img-fluid">
             </div>
         </div>
@@ -332,7 +332,7 @@
 
         </div>
     </div>
-    <div class="container pt-5">
+    <div class="container pt-5 d-none d-xl-inline">
         <div class="box-product-youlike">
             <h4>
                 <a href=" ">LAPTOP NỔI BẬT</a>
@@ -617,7 +617,7 @@
         </div>
 
     </div>
-    <div class="container pt-5">
+    <div class="container pt-5 ">
         <div class="box-product-youlike">
             <h4>
                 <a href=" ">PHỤ KIỆN</a>
