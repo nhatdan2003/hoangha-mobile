@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/hoanghamobie")
 public class HomeController {
 
 	@GetMapping("/hoanghamobie")
@@ -53,6 +52,4 @@ public class HomeController {
 	public String findProduct() {
 		return "product/findproduct";
 	}
-
->>>>>>> c79bb6f36ad5f65b254d219c173505adced915c2
 }
