@@ -28,7 +28,7 @@ public class Product {
     private String type;
     private String image;
     private Date date;
-
+    private Double sale;
     public Product(Long idProduct, String nameProduct, Double price, String note, String type, String image, Date date) {
         this.idProduct = idProduct;
         this.nameProduct = nameProduct;

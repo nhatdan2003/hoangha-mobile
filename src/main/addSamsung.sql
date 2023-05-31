@@ -1,0 +1,22 @@
+INSERT INTO product (date, image, name_product, note, price, type, sale)
+VALUES 
+    (CURRENT_TIMESTAMP, 'samsung1.jpg', 'Samsung Galaxy S21 - 128GB - Chính hãng VN/A', null, 12000000, 'Samsung', 14000000),
+    (CURRENT_TIMESTAMP, 'samsung2.jpg', 'Samsung Galaxy Note 20 Ultra - 256GB - Chính hãng VN/A', null, 15000000, 'Samsung', 17000000),
+    (CURRENT_TIMESTAMP, 'samsung3.jpg', 'Samsung Galaxy S20 FE - 128GB - Chính hãng VN/A', null, 9000000, 'Samsung', 11000000),
+    (CURRENT_TIMESTAMP, 'samsung4.jpg', 'Samsung Galaxy A52 - 128GB - Chính hãng VN/A', null, 6000000, 'Samsung', 8000000),
+    (CURRENT_TIMESTAMP, 'samsung5.jpg', 'Samsung Galaxy A12 - 64GB - Chính hãng VN/A', null, 3000000, 'Samsung', 4000000),
+    (CURRENT_TIMESTAMP, 'samsung6.jpg', 'Samsung Galaxy M31 - 128GB - Chính hãng VN/A', null, 4000000, 'Samsung', 5000000),
+    (CURRENT_TIMESTAMP, 'samsung7.jpg', 'Samsung Galaxy S10 Lite - 128GB - Chính hãng VN/A', null, 8000000, 'Samsung', 10000000),
+    (CURRENT_TIMESTAMP, 'samsung8.jpg', 'Samsung Galaxy Note 10 - 256GB - Chính hãng VN/A', null, 10000000, 'Samsung', 12000000),
+    (CURRENT_TIMESTAMP, 'samsung9.jpg', 'Samsung Galaxy A71 - 128GB - Chính hãng VN/A', null, 7000000, 'Samsung', 9000000),
+    (CURRENT_TIMESTAMP, 'samsung10.jpg', 'Samsung Galaxy M51 - 128GB - Chính hãng VN/A', null, 6000000, 'Samsung', 8000000),
+    (CURRENT_TIMESTAMP, 'samsung11.jpg', 'Samsung Galaxy A32 - 128GB - Chính hãng VN/A', null, 4000000, 'Samsung', 5000000),
+    (CURRENT_TIMESTAMP, 'samsung12.jpg', 'Samsung Galaxy A22 - 64GB - Chính hãng VN/A', null, 3000000, 'Samsung', 4000000),
+    (CURRENT_TIMESTAMP, 'samsung13.jpg', 'Samsung Galaxy M11 - 32GB - Chính hãng VN/A', null, 2000000, 'Samsung', 3000000),
+    (CURRENT_TIMESTAMP, 'samsung14.jpg', 'Samsung Galaxy S9 - 64GB - Chính hãng VN/A', null, 5000000, 'Samsung', 7000000),
+    (CURRENT_TIMESTAMP, 'samsung15.jpg', 'Samsung Galaxy A21s - 64GB - Chính hãng VN/A', null, 3000000, 'Samsung', 4000000),
+    (CURRENT_TIMESTAMP, 'samsung16.jpg', 'Samsung Galaxy M01 - 32GB - Chính hãng VN/A', null, 1500000, 'Samsung', 2500000),
+    (CURRENT_TIMESTAMP, 'samsung17.jpg', 'Samsung Galaxy A12s - 64GB - Chính hãng VN/A', null, 2500000, 'Samsung', 3500000),
+    (CURRENT_TIMESTAMP, 'samsung18.jpg', 'Samsung Galaxy M21 - 64GB - Chính hãng VN/A', null, 4000000, 'Samsung', 5000000),
+    (CURRENT_TIMESTAMP, 'samsung19.jpg', 'Samsung Galaxy S10 - 128GB - Chính hãng VN/A', null, 8000000, 'Samsung', 10000000),
+    (CURRENT_TIMESTAMP, 'samsung20.jpg', 'Samsung Galaxy A52s - 128GB - Chính hãng VN/A', null, 9000000, 'Samsung', 11000000);

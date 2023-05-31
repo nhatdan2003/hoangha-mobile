@@ -26,7 +26,7 @@
 
         <!-- <div class="row"> -->
         <span class="icon-truck"></span>
-        <header class="pt-3 pt-xl-0">
+        <header class="pt-3 pt-xl-0" style="background-color: #f4f4f4">
 
             <div class="container-fluid">
                 <div class="row top-navigation  d-none  d-xl-flex  ">
@@ -76,7 +76,7 @@
 
             </div>
             <div class="heading row d-inline" style="background-color: #f4f4f4;">
-                <div class="container" style="max-width: 1200px; ">
+                <div class="container" style="max-width: 1200px; background-color: #f4f4f4">
                     <div class="row  " >
                         <!--menu mobile-->
                         <div class="  col-2 d-xl-none order-1">
@@ -211,7 +211,7 @@
 
 
 
-        <div class="menu-product " style="background-color: #f4f4f4;">
+        <div class="menu-product pt-4" style="background-color: #f4f4f4;">
             <!-- hiện thi -->
             <nav class="">
                 <div class="container menu-pro d-none d-xl-flex  pt-4">

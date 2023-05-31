@@ -1,27 +1,27 @@
 package com.java5.Asm.Controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller
-@RequestMapping("/hoanghamobie")
-public class HomeController {
+import com.java5.Asm.Entity.Product;
+import com.java5.Asm.Repository.ProductRepository;
 
-    @RequestMapping("hoanghamobie/login")
+@Controller
+public class HomeController {
+	@Autowired
+	ProductRepository dao;
+    @RequestMapping("hoanghamobile/login")
     public String Login() {
     	return "admin/login";
     }
 
-
-	@GetMapping("/hoanghamobie")
-	public String test() {
-		return "product/index";
-	}
-
-
-
+	
 	@RequestMapping("hoanghamobie/products")
 	public String Product() {
 		return "admin/products";
@@ -56,6 +56,5 @@ public class HomeController {
 	public String findProduct() {
 		return "product/findproduct";
 	}
-
 
 }
