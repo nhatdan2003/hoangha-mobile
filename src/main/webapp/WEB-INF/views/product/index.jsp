@@ -60,7 +60,7 @@
                                         <a class="nav-link" href="#">Tra cứu đơn hàng</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="hoanghamobie/login" >Đăng nhập</a>
+                                        <a class="nav-link" href="hoanghamobile/login" >Đăng nhập</a>
                                     </li>
 
                                 </ul>
@@ -97,7 +97,7 @@
                                             <div class="col-4"> <i class="fa-regular fa-user " style="color: #f4f4f4; height: 1.5rem; width: 1.5rem;"></i></div>
                                             <div class="col-8 mb-2">
                                                 <div class="row"> 
-                                                <a style="color: white" href="hoanghamobie/login" >Đăng Nhập </a>
+                                                <a style="color: white" href="hoanghamobile/login" >Đăng Nhập </a>
                                                 </div>
                                                 <div class="row" > <span style="color: white">Để Nhận Nhiều Ưu Đãi</span></div>
                                                
