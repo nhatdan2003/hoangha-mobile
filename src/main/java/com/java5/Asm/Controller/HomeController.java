@@ -22,10 +22,10 @@ public class HomeController {
     }
 
 	
-	@RequestMapping("hoanghamobie/products")
-	public String Product() {
-		return "admin/products";
-	}
+//	@RequestMapping("hoanghamobie/products")
+//	public String Product() {
+//		return "admin/products";
+//	}
 
 	@RequestMapping("hoanghamobie/add-product")
 	public String addProduct() {

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,24 +47,31 @@
 							<thead>
 								<tr>
 									<th scope="col">&nbsp;</th>
-									<th scope="col">PRODUCT NAME</th>
-									<th scope="col">UNIT SOLD</th>
-									<th scope="col">IN STOCK</th>
-									<th scope="col">EXPIRE DATE</th>
+									<th scope="col">HÌNH</th>
+									<th scope="col">TÊN SẢN PHẨM</th>
+									<th scope="col">GIÁ SẢN PHẨM</th>
+									<th scope="col">LOẠI</th>
+									<th scope="col">NGÀY TẠO</th>
 									<th scope="col">&nbsp;</th>
 								</tr>
 							</thead>
 							<tbody>
+							<c:forEach var="item" items="${itemlistproduct}">
 								<tr>
 									<th scope="row"><input type="checkbox" /></th>
-									<td class="tm-product-name">Lorem Ipsum Product 1</td>
-									<td>1,450</td>
-									<td>550</td>
-									<td>28 March 2019</td>
+									<td ><img
+										src="../IMG/${item.image}" alt="" width="110px"></a></th>
+									<td class="tm-product-name">${item.nameProduct}</td>
+									<td><strong><fmt:formatNumber value="${item.price}"
+												type="currency" currencySymbol="₫" /></strong></td>
+									<td>${item.type}</td>
+									<td>${item.date}</td>
 									<td><a href="#" class="tm-product-delete-link"> <i
 											class="far fa-trash-alt tm-product-delete-icon"></i>
 									</a></td>
 								</tr>
+							</c:forEach>
+								
 							</tbody>
 						</table>
 					</div>
