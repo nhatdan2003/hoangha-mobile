@@ -30,7 +30,7 @@ public class ProductController {
 		model.addAttribute("itemRandom", itemRandom);
 		return "product/index";
 	}
-	@RequestMapping("/hoanghamobie/products")
+	@RequestMapping("/hoanghamobile/products")
 	public String ShowListProduct1(Model model) {
 		List<Product> itemlistproduct = dao.findAll();
 		model.addAttribute("itemlistproduct", itemlistproduct);

@@ -17,10 +17,8 @@ public class Product_Details {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	long id;
 	String img;
-	@ManyToOne @JoinColumn(name = "idproduct")
+	@ManyToOne
+	@JoinColumn(name = "idproduct")
 	Product product;
-	
-	
-	
 
 }

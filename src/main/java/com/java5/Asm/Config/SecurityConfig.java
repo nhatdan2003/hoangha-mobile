@@ -27,30 +27,35 @@ public class SecurityConfig {
 //        authenticationProvider.setPasswordEncoder(passwordEncoder());
 //        return authenticationProvider;
 //    }
-   @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http.csrf().disable()
-                .authorizeHttpRequests()
-                .requestMatchers(
-                        "/",
-                        "/login",
-                        "/error",
-                        "/registration/**")
-                .permitAll()
-                .anyRequest()
-                .authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .usernameParameter("email")
-                .defaultSuccessUrl("/")
-                .permitAll().and()
-                .logout()
-                .invalidateHttpSession(true)
-                .clearAuthentication(true)
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/")
-                .and()
-                .build();
-    }
+	 protected void configure(HttpSecurity http) throws Exception {
+	        http.csrf().disable()
+	                .authorizeRequests()
+	                .antMatchers(
+	                        "/",
+	                        "/hoanghamobile/login",
+	                        "/error",
+	                        "/hoanghamobile/**")
+	                .permitAll()
+	                .anyRequest()
+	                .authenticated()
+	                .and()
+	                .formLogin()
+	                .loginPage("/hoanghamobile/login")
+	                .usernameParameter("email")
+	                .defaultSuccessUrl("/hoanghamobile/")
+	                .permitAll()
+	                .and()
+	                .logout()
+	                .invalidateHttpSession(true)
+	                .clearAuthentication(true)
+	                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+	                .logoutSuccessUrl("/hoanghamobile/")
+	                .and()
+	                .httpBasic(); // Add this line if you want to enable basic authentication
+	    }
+
+	    @Bean
+	    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+	        return http.build();
+	    }
 }

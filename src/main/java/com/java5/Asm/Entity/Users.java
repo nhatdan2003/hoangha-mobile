@@ -13,10 +13,10 @@ import java.util.Collection;
 @Getter
 @Setter
 @NoArgsConstructor
-public class User {
-	@Id
+public class Users {
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id_user;
     private String firstName;
     private String lastName;
     @NaturalId(mutable = true)
@@ -25,11 +25,11 @@ public class User {
     private boolean isEnabled = false;
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id_user"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id_role"))
     private Collection<Role> roles;
 
-    public User(String firstName, String lastName, String email,
+    public Users(String firstName, String lastName, String email,
                 String password, Collection<Role> roles) {
         this.firstName = firstName;
         this.lastName = lastName;
