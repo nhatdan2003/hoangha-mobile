@@ -119,6 +119,8 @@
 
 			</div>
 		</div>
+		
+		
 		<div id="carouselId2" class="carousel slide" data-ride="carousel">
 			<ol class="carousel-indicators">
 				<li data-target="#carouselId2" data-slide-to="0" class="active"></li>
@@ -160,7 +162,7 @@
 						style="background-color: #fff; border-radius: 5px; box-shadow: 0 4px 6px #00000029; height: 280px;">
 						<div class="row col-sm-12 text-center" style="margin-left: 10px;">
 							<c:forEach var="product" items="${itemRandom}"
-								varStatus="status" begin="4" end="8">
+								varStatus="status" begin="4" end="7">
 								<div class="sanpham col-sm-3 mt-5" style="margin-left: 0px;">
 									<img
 										src="IMG/${product.image}" alt="" width="110px"></a>
@@ -871,6 +873,11 @@
 		</div>
 
 	</div>
+	
+	<script src="JSON/product.js ">
+        </script>
+        <script src="JSON/script.js"></script>
+        <script src="JSON/swiped-events.js"></script>
 	<script src=" https://code.jquery.com/jquery-3.2.1.slim.min.js "
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN "
 		crossorigin="anonymous "></script>

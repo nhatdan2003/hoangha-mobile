@@ -13,12 +13,17 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 	@Query("SELECT p FROM Product p WHERE p.type='Apple'")
 	List<Product> fillProductApple();
 	
-	@Query("SELECT p FROM Product p WHERE p.type IN ('Oppo', 'Samsung') ORDER BY RAND()")
-	List<Product> fillProductSamSung();
+	@Query("SELECT p FROM Product p WHERE p.type <> 'Apple' ORDER BY RAND()")
+	List<Product> fillProductSamSung1();
 	
 	@Query("SELECT p FROM Product p WHERE p.type='Máy tính'")
 	List<Product> fillComputer();
 	
 	@Query("SELECT p FROM Product p ORDER BY RAND() LIMIT 15")
 	List<Product> findRandom5Products();
+	
+	
+	@Query("SELECT p FROM Product p WHERE p.nameProduct LIKE ?1")
+	List<Product> findProduct(String keyword);
+	
 }

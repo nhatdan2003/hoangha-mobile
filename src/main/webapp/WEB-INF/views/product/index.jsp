@@ -22,7 +22,7 @@
 
     </head>
 
-    <body ng-app="myApp" ng-controller="myCtrl">
+    <body>
 
         <!-- <div class="row"> -->
         <span class="icon-truck"></span>
@@ -39,7 +39,7 @@
                                 id="navbarNavDropdown">
                                 <ul class="navbar-nav ml-auto float-left">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Bản mobile</a>
+                                        <a class="nav-link" href="/hoanghamobile">Trang Chủ</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">Giới thiệu</a>
@@ -162,16 +162,16 @@
                             <img src="IMG/logo-text.png" alt="" class="img-fluid">
                         </div>
                         <div class="search-box col-12 col-xl-6 pt-3 order-4 order-xl-3">
-                            <form>
+                            <form action="/hoanghamobile/findproduct" method="GET">
                                 <div class="input-group no-shadow">
-                                    <input type="text" class="form-control" placeholder="Hôm nay bạn cần tìm gì ?"
+                                    <input type="text" class="form-control" placeholder="Hôm nay bạn cần tìm gì ?" name="keyword"
                                         ng-model="find"
                                         style="height: 40px; border-radius: 15px; font-weight: bold; font-size: 13px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border: 2px gray; "
                                         ng-model="search">
                                     <div class="input-group-btn">
                                         <button class="btn btn" type="submit"
                                             style="width: 42px; height: 42px; border-radius: 17px; background-image: linear-gradient(#00917a,#00483d); color: #fff; background-color: #00483d; position:absolute ;border:none ;top: -6px; right: 4px; z-index: 1000; ">
-                                            <a href="#!findproduct/{{find}}" style="color: #fff; font-size: 16px;">
+                                            <a href="#" style="color: #fff; font-size: 16px;">
                                                 <i class="glyphicon glyphicon-search"></i>
                                             </a>
                                         </button>
