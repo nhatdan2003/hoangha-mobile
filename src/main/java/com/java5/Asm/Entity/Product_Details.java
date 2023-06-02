@@ -12,16 +12,13 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="Product_Details")
 public class Product_Details {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	long id;
 	String img;
-	@ManyToOne @JoinColumn(name = "Productid")
+	@ManyToOne
+	@JoinColumn(name = "idproduct")
 	Product product;
-	
-	
-	
 
 }

@@ -1,51 +1,61 @@
 package com.java5.Asm.Config;
 
-// import org.springframework.context.annotation.Bean;
-// import org.springframework.context.annotation.Configuration;
-// import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-// import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-// import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-// import org.springframework.security.crypto.password.PasswordEncoder;
-// import org.springframework.security.web.SecurityFilterChain;
-// import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-// import lombok.RequiredArgsConstructor;
-
-// @Configuration
-// @EnableWebSecurity
-// @RequiredArgsConstructor
+@Configuration
+@EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
-	
-// 	@Bean
-// 	public PasswordEncoder passwordEncoder() {
-// 		return new BCryptPasswordEncoder(); 
-// 	}
-	
-// 	@Bean
-// 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-// 		return http.csrf().disable()
-//                 .authorizeHttpRequests()
-//                 .requestMatchers(
-//                         "/",
-//                         "/error",
-//                         "/hoanghamoble/**",
-//                         "/admin/login.jsp")
-//                 .permitAll()
-//                 .anyRequest()
-//                 .authenticated()
-//                 .and()
-//                 .formLogin()
-//                 .loginPage("/hoanghamobie/login")
-//                 .usernameParameter("email")
-//                 .defaultSuccessUrl("/hoanghamobie")
-//                 .permitAll().and()
-//                 .logout()
-//                 .invalidateHttpSession(true)
-//                 .clearAuthentication(true)
-//                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-//                 .logoutSuccessUrl("/")
-//                 .and()
-//                 .build();
-// 	}
-	
+	@Bean
+    public PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+//    @Bean
+//    public AuthenticationProvider authenticationProvider(){
+//        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
+//        authenticationProvider.setUserDetailsService(userDetailsService);
+//        authenticationProvider.setPasswordEncoder(passwordEncoder());
+//        return authenticationProvider;
+//    }
+	 protected void configure(HttpSecurity http) throws Exception {
+	        http.csrf().disable()
+	                .authorizeRequests()
+	                .antMatchers(
+	                        "/",
+	                        "/hoanghamobile/login",
+	                        "/error",
+	                        "/hoanghamobile/**")
+	                .permitAll()
+	                .anyRequest()
+	                .authenticated()
+	                .and()
+	                .formLogin()
+	                .loginPage("/hoanghamobile/login")
+	                .usernameParameter("email")
+	                .defaultSuccessUrl("/hoanghamobile/")
+	                .permitAll()
+	                .and()
+	                .logout()
+	                .invalidateHttpSession(true)
+	                .clearAuthentication(true)
+	                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+	                .logoutSuccessUrl("/hoanghamobile/")
+	                .and()
+	                .httpBasic(); // Add this line if you want to enable basic authentication
+	    }
+
+	    @Bean
+	    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+	        return http.build();
+	    }
 }
