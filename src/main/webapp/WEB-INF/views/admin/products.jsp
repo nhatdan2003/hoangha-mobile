@@ -72,7 +72,10 @@
 												<tr>
 													<th scope="row"><input type="checkbox" /></th>
 													<td><img src="../IMG/${item.image}" alt="" width="110px"></a></th>
-													<td class="tm-product-name">${item.nameProduct}</td>
+													
+													<td class="tm-product-name">
+													<a href="/hoanghamobile/edit-product?id=${item.idProduct}">${item.nameProduct}</a>
+													</td>
 													<td><strong>
 															<fmt:formatNumber value="${item.price}" type="currency"
 																currencySymbol="₫" />

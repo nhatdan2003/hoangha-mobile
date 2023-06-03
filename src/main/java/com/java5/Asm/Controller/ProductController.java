@@ -1,5 +1,7 @@
 package com.java5.Asm.Controller;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,13 +25,16 @@ public class ProductController {
 		List<Product> itemApple =  dao.fillProductApple();
 		model.addAttribute("itemApple", itemApple);
 		List<Product> itemSamsung =  dao.fillProductSamSung1();
+		Collections.shuffle(itemSamsung);
 		model.addAttribute("itemSamsung", itemSamsung);
 		
 		List<Product> itemComputer =  dao.fillComputer();
 		model.addAttribute("itemComputer", itemComputer);
 		
 		List<Product> itemRandom =  dao.findRandom5Products();
+		Collections.shuffle(itemRandom);
 		model.addAttribute("itemRandom", itemRandom);
+		
 		return "product/index";
 	}
 	@RequestMapping("/hoanghamobile/products")
@@ -43,11 +48,21 @@ public class ProductController {
 	public String FindProduct(Model model , @RequestParam("keyword") String keyword) {
 		
 		List<Product> items = dao.findProduct("%"+keyword+"%");
-		model.addAttribute("itemfind", items);
 		
+		model.addAttribute("itemfind", items);
+		model.addAttribute("keyword",keyword);
 		
 		return "product/findproduct";
 	}
+	@GetMapping("/hoanghamobile/edit-product")
+	public String EditProdcut(Model model,@RequestParam("id") Long id) {
+		Product items = dao.findByIdProduct(id);
+		
+		model.addAttribute("items",items);
+		
+		return "admin/edit-product";
+	}
+	
 	
 	
 	

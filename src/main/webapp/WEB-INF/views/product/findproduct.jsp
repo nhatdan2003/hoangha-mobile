@@ -147,13 +147,13 @@
 
 					<!-- end menu mobile-->
 					<div class="logo col-8  col-xl-3 pt-0 pt-xl-3 text-center order-2 ">
-						<img src="IMG/logo-text.png" alt="" class="img-fluid">
+						<img src="../IMG/logo-text.png" alt="" class="img-fluid">
 					</div>
 					<div class="search-box col-12 col-xl-6 pt-3 order-4 order-xl-3">
 						<form action="/hoanghamobile/findproduct" method="GET">
 							<div class="input-group no-shadow">
 								<input type="text" class="form-control"
-									placeholder="Hôm nay bạn cần tìm gì ?" name="keyword"
+									placeholder="Hôm nay bạn cần tìm gì ?" name="keyword" value="${keyword}"
 									ng-model="find"
 									style="height: 40px; border-radius: 15px; font-weight: bold; font-size: 13px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border: 2px gray;"
 									ng-model="search">

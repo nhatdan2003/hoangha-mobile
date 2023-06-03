@@ -242,58 +242,80 @@
 			<div class="carousel-inner" role="listbox">
 				<div class="carousel-item active">
 					<div class="row text-center">
+					<c:forEach var="product" items="${itemRandom}" begin="14" end="18">
 						<div class="product-like"
-							ng-repeat="p in products | filter: {kind : 'phukien'}|limitTo:5"
+							
 							style="height: 340px;">
 							<div class="sp mt-3">
-								<a href="#!detail/{{p.id}}"><img src="{{p.image}}" alt=""></a>
+								<a href="#"><img src="IMG/${product.image}" alt=""></a>
 							</div>
 
-							<div class="product-name pt-2">{{p.name}}</div>
+							<div class="product-name pt-2">${product.nameProduct}</div>
 							<div class="product-price pt-2">
-								<strong>{{p.price |number}}</strong><strong>₫</strong>
-								<del>{{p.sale}}</del>
-								<del ng-if="p.sale!=''">₫</del>
+								<strong><fmt:formatNumber value="${product.price}"
+												type="currency" currencySymbol="₫" /></strong>
+										<c:if test="${product.sale != null && product.sale != 0}">
+											<del>
+												<fmt:formatNumber value="${product.sale}" type="currency"
+													currencySymbol="₫" />
+											</del>
+										</c:if>
 							</div>
 						</div>
+					</c:forEach>
+						
 
 					</div>
 				</div>
 				<div class="carousel-item">
 					<div class="row text-center">
+						<c:forEach var="product" items="${itemRandom}" begin="19" end="23">
 						<div class="product-like"
-							ng-repeat="p in products | filter: {kind : 'apple'}|limitTo:5"
+							
 							style="height: 340px;">
 							<div class="sp mt-3">
-								<a href="#!detail/{{p.id}}"><img src="{{p.image}}" alt=""></a>
+								<a href="#"><img src="IMG/${product.image}" alt=""></a>
 							</div>
 
-							<div class="product-name pt-2">{{p.name}}</div>
+							<div class="product-name pt-2">${product.nameProduct}</div>
 							<div class="product-price pt-2">
-								<strong>{{p.price |number}}</strong><strong>₫</strong>
-								<del>{{p.sale}}</del>
-								<del ng-if="p.sale!=''">₫</del>
+								<strong><fmt:formatNumber value="${product.price}"
+												type="currency" currencySymbol="₫" /></strong>
+										<c:if test="${product.sale != null && product.sale != 0}">
+											<del>
+												<fmt:formatNumber value="${product.sale}" type="currency"
+													currencySymbol="₫" />
+											</del>
+										</c:if>
 							</div>
 						</div>
+					</c:forEach>
 
 					</div>
 				</div>
 				<div class="carousel-item">
 					<div class="row text-center">
+						<c:forEach var="product" items="${itemRandom}" begin="24" end="28">
 						<div class="product-like"
-							ng-repeat="p in products | filter: {kind : 'laptop'}|limitTo:5"
+							
 							style="height: 340px;">
 							<div class="sp mt-3">
-								<a href="#!detail/{{p.id}}"><img src="{{p.image}}" alt=""></a>
+								<a href="#"><img src="IMG/${product.image}" alt=""></a>
 							</div>
 
-							<div class="product-name pt-2">{{p.name}}</div>
+							<div class="product-name pt-2">${product.nameProduct}</div>
 							<div class="product-price pt-2">
-								<strong>{{p.price |number}}</strong><strong>₫</strong>
-								<del>{{p.sale}}</del>
-								<del ng-if="p.sale!=''">₫</del>
+								<strong><fmt:formatNumber value="${product.price}"
+												type="currency" currencySymbol="₫" /></strong>
+										<c:if test="${product.sale != null && product.sale != 0}">
+											<del>
+												<fmt:formatNumber value="${product.sale}" type="currency"
+													currencySymbol="₫" />
+											</del>
+										</c:if>
 							</div>
 						</div>
+					</c:forEach>
 
 
 
@@ -325,6 +347,10 @@
 			<c:forEach var="product" items="${itemApple}" varStatus="status">
 				<c:if test="${status.count <= 10}">
 					<div class="product-like">
+						<div class="stiker">
+							<span> <img src="https://hoanghamobile.com/Content/web/sticker/apple.png" alt=" ">
+							</span>
+						</div>
 						<div class="sp mt-4">
 							<a href="#"><img src="/IMG/${product.image}" alt=""
 								class="img-fluid"></a>
@@ -366,6 +392,18 @@
 			<c:forEach var="product" items="${itemSamsung}" varStatus="status">
 				<c:if test="${status.count <= 20}">
 					<div class="product-like">
+					<c:if test="${product.price<=5000000}">
+					<div class="stiker" style="margin-top: 10px ; position: absolute;">
+							<span> <img src="https://hoanghamobile.com/Content/web/sticker/new-re-het-co.png" alt=" ">
+							</span>
+						</div>
+					</c:if>
+					<c:if test="${product.price>5000000}">
+					<div class="stiker" style="margin-top: 10px ; position: absolute;">
+							<span> <img src="https://hoanghamobile.com/Content/web/sticker/bao-hanh-18t.png" alt=" ">
+							</span>
+						</div>
+					</c:if>	
 						<div class="sp mt-4">
 							<a href="#"><img src="/IMG/${product.image}" alt=""
 								class="img-fluid"></a>
