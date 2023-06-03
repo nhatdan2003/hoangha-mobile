@@ -3,11 +3,13 @@ package com.java5.Asm.Controller;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -62,8 +64,11 @@ public class ProductController {
 		
 		return "admin/edit-product";
 	}
-	
-	
-	
+	@RequestMapping("/hoanghamobile/updateproduct")
+	public String updateProduct(Product items ) {
+		System.out.println("hihi");
+	    dao.save(items);
+	    return "redirect:/admin/edit-product/"+items.getIdProduct();
+	}
 	
 }
