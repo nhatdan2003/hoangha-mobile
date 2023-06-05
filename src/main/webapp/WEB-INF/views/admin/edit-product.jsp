@@ -97,8 +97,14 @@
 					</div>
 					<div class="row tm-edit-product-row">
 						<div class="col-xl-6 col-lg-6 col-md-12">
-						<form:form action="/hoanghamobile/updateproduct" method="post"
-								clas="tm-edit-product-form" modelAttribute="items">
+						<form:form action="/hoanghamobile/updateproduct"
+								clas="tm-edit-product-form"  modelAttribute="items">
+								<div class="form-group mb-3">
+									<label for="name">Max Sản Phẩm </label>
+									 <form:input id="id"
+										name="id" type="text" path="idProduct"
+										value="${items.idProduct}" class="form-control validate" />
+								</div>
 						 		<div class="form-group mb-3">
 									<label for="name">Tên Sản Phẩm </label>
 									 <form:input id="name"
@@ -107,20 +113,22 @@
 								</div>
 								<div class="form-group mb-3">
 									<label for="name">Giá Sản Phẩm Mới </label> 
-									<form:input id="name"
-										name="name" type="text" path="price" value="${items.price}"
+									<form:input id="price"
+										name="price" type="text" path="price" value="${items.price}"
 										class="form-control validate" />
 								</div>
 								<div class="form-group mb-3">
 									<label for="name">Giảm Giá Sản Phẩm </label>
-									<form:input id="name"
-										name="name" type="text" path="sale" value="${items.sale}"
+									<form:input id="sale"
+										name="sale" type="text" path="sale" value="${items.sale}"
 										class="form-control validate" />
 								</div>
 								<div class="form-group mb-3">
 									<label for="description">Mô Tả</label>
-									<textarea class="form-control validate tm-small" rows="5" name="note" required>
-									${items.note}</textarea>
+									
+									<form:input id="note"
+										name="note" type="text" path="note" value="${items.note}"
+										class="form-control validate" />
 								</div>
 								<div class="form-group mb-3">
 									<label for="category">Category</label> <select
@@ -154,7 +162,7 @@
 							<div class="custom-file mt-3 mb-3">
 								<input id="fileInput" type="file" style="display: none;" /> <input
 									type="button" class="btn btn-primary btn-block mx-auto"
-									value="CHANGE IMAGE NOW"
+									value="CHANGE IMAGE NOW" formaction="/hoanghamobile/updateproduct"
 									onclick="document.getElementById('fileInput').click();" />
 							</div>
 						</div>

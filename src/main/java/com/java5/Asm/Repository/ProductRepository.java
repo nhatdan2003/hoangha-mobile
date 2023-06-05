@@ -3,12 +3,15 @@ package com.java5.Asm.Repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.java5.Asm.Entity.Product;
 
-@Repository
+import jakarta.transaction.Transactional;
+
+
 public interface ProductRepository extends JpaRepository<Product, Long>{
 	@Query("SELECT p FROM Product p WHERE p.type='Apple'")
 	List<Product> fillProductApple();
@@ -27,6 +30,13 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 	List<Product> findProduct(String keyword);
 	
 	Product findByIdProduct(Long idProduct);
+	
+	@Transactional
+	@Modifying
+	@Query("UPDATE Product p SET p.nameProduct=?1 ,p.price=?3,p.note=?4,p.sale=?5 ,p.image=?6 WHERE p.idProduct=?2")
+	void updatenameProduct(String Name,Long id,Double price,String note,Double sale,String image);
+	
+	
 	
 	
 	

@@ -65,10 +65,12 @@ public class ProductController {
 		return "admin/edit-product";
 	}
 	@RequestMapping("/hoanghamobile/updateproduct")
-	public String updateProduct(Product items ) {
-		System.out.println("hihi");
-	    dao.save(items);
-	    return "redirect:/admin/edit-product/"+items.getIdProduct();
+	public String updateProduct(@ModelAttribute("items") Product items) {
+		System.out.println(items.getIdProduct());
+		System.out.println(items.getNameProduct());
+	    dao.updatenameProduct(items.getNameProduct(),items.getIdProduct()
+	    		,items.getPrice(),items.getNote(),items.getSale(),items.getImage());
+	    return "admin/edit-product";
 	}
 	
 }
