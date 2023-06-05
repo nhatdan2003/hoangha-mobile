@@ -22,7 +22,6 @@ public class Users {
 	private String email;
 	private String password;
 	private boolean isEnabled = false;
-
 	public Users(String firstName, String lastName, String email, String password) {
 		this.firstName = firstName;
 		this.lastName = lastName;
