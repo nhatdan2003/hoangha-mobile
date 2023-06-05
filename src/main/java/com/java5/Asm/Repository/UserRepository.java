@@ -1,5 +1,6 @@
 package com.java5.Asm.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,4 +16,7 @@ public interface UserRepository extends JpaRepository<Users, Long> {
 			+ "u.email =:email where u.id =:id")
 	void update(String firstName, String lastName, String email, Long id);
 
+	@Query("select u from Users u")
+	List<Users> fillAll1();
+	
 }

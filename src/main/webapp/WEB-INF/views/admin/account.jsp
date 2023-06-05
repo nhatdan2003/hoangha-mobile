@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -151,6 +153,30 @@
           </div>
         </div>
       </div>
+      
+      <div class="container">
+      	<table class="table table-hover bg-white text-dark">
+	      	<tr>
+	      		<th>First Name</th>
+	      		<th>Last Name</th>
+	      		<th>Email</th>
+	      		<th>Password</th>
+	      		<th>is_enabled</th>
+	      		<th></th>
+	      	</tr>
+	      	<c:forEach var="item" items="${items}">
+	      		<tr>
+	      			<td>${item.firstName}</td>
+	      			<td>${item.lastName}</td>
+	      			<td>${item.email}</td>
+	      			<td>${item.password}</td>
+	      			<td>${item.isEnabled}</td>
+	      			<td><a href="#">Edit</a></td>
+	      		</tr>
+	      	</c:forEach>
+	     </table>
+      </div>
+      
       <footer class="tm-footer row tm-mt-small">
         <div class="col-12 font-weight-light">
           <p class="text-center text-white mb-0 px-4 small">
