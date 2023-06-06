@@ -2,6 +2,8 @@ package com.java5.Asm.Repository;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -30,6 +32,10 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 	List<Product> findProduct(String keyword);
 	
 	Product findByIdProduct(Long idProduct);
+	
+	
+	@Query("SELECT p FROM Product p WHERE p.nameProduct LIKE ?1")
+	Page<Product> findAllByNameProduct(String keyWord , Pageable pageble);
 	
 	@Transactional
 	@Modifying

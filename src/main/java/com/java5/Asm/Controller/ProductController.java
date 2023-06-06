@@ -4,8 +4,12 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,10 +51,13 @@ public class ProductController {
 	}
 	
 	@GetMapping("/hoanghamobile/findproduct")
-	public String FindProduct(Model model , @RequestParam("keyword") String keyword) {
+	public String FindProduct(Model model , @RequestParam("keyword") String keyword , @RequestParam("p") Optional<Integer> p) {
 		
+		Pageable pageble = PageRequest.of(p.orElse(0), 15);
 		List<Product> items = dao.findProduct("%"+keyword+"%");
+		Page<Product> items2 = dao.findAllByNameProduct("%"+keyword+"%",pageble);
 		
+		model.addAttribute("page",items2);
 		model.addAttribute("itemfind", items);
 		model.addAttribute("keyword",keyword);
 		
