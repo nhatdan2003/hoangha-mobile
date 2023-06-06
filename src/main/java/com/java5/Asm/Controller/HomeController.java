@@ -20,11 +20,6 @@ public class HomeController {
 	@Autowired
 	UserRepository dao1;
 
-	@GetMapping("/hoanghamobile/login")
-	public String Login() {
-		return "admin/login";
-	}
-
 	@RequestMapping("/hoanghamobile/add-product")
 	public String addProduct() {
 		return "admin/add-product";

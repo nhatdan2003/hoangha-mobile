@@ -16,32 +16,34 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
-	@Bean
-	public PasswordEncoder passwordEncoder() {
+	private final EndToEndUserDetailsService userDetailsService;
+
+    @Bean
+    PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 
-	// @Bean
-	// public AuthenticationProvider authenticationProvider() {
-	// DaoAuthenticationProvider authenticationProvider = new
-	// DaoAuthenticationProvider();
-	// authenticationProvider.setUserDetailsService(userDetailsService);
-	// authenticationProvider.setPasswordEncoder(passwordEncoder());
-	// return authenticationProvider;
-	// }
+    @Bean
+    AuthenticationProvider authenticationProvider() {
+		DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
+		authenticationProvider.setUserDetailsService(userDetailsService);
+		authenticationProvider.setPasswordEncoder(passwordEncoder());
+		return authenticationProvider;
+	}
 
+	@SuppressWarnings("removal")
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable().authorizeRequests()
-				.antMatchers("/", "/hoanghamobile/login", "/error", "/hoanghamobile/**").permitAll().anyRequest()
+		http.csrf().disable().authorizeHttpRequests()
+				.requestMatchers("/", "/hoanghamobile/login", "/error", "/hoanghamobile/**").permitAll().anyRequest()
 				.authenticated().and().formLogin().loginPage("/hoanghamobile/login").usernameParameter("email")
 				.defaultSuccessUrl("/hoanghamobile/").permitAll().and().logout().invalidateHttpSession(true)
 				.clearAuthentication(true).logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-				.logoutSuccessUrl("/hoanghamobile/").and().httpBasic(); // Add this line if you want to enable basic
-																		// authentication
+				.logoutSuccessUrl("/hoanghamobile/").and().httpBasic();
 	}
 
-	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    @Bean
+    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		return http.build();
 	}
+
 }
