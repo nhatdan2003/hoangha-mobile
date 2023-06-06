@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.NaturalId;
 
-import java.util.Collection;
-
 @Entity
 @Getter
 @Setter
@@ -22,6 +20,7 @@ public class Users {
 	private String email;
 	private String password;
 	private boolean isEnabled = false;
+
 	public Users(String firstName, String lastName, String email, String password) {
 		this.firstName = firstName;
 		this.lastName = lastName;

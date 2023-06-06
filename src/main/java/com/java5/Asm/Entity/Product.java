@@ -4,8 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +17,7 @@ import java.util.Date;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Product implements Serializable{
+public class Product implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idProduct;
@@ -30,7 +28,9 @@ public class Product implements Serializable{
     private String image;
     private Date date;
     private Double sale;
-    public Product(Long idProduct, String nameProduct, Double price, String note, String type, String image, Date date) {
+
+    public Product(Long idProduct, String nameProduct, Double price, String note, String type, String image,
+            Date date) {
         this.idProduct = idProduct;
         this.nameProduct = nameProduct;
         this.price = price;
@@ -39,5 +39,5 @@ public class Product implements Serializable{
         this.image = image;
         this.date = date;
     }
-	
+
 }
