@@ -92,7 +92,7 @@
 									</table>
 								</div>
 								<!-- table container -->
-								<a href="add-product" class="btn btn-primary btn-block text-uppercase mb-3">Add
+								<a href="/hoanghamobile/addproduct" class="btn btn-primary btn-block text-uppercase mb-3">Add
 									new product</a>
 								<button formaction="/hoanghamobile/deleteproduct" class="btn btn-primary btn-block text-uppercase">
 									Delete selected products</button>

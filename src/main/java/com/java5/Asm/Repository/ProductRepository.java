@@ -36,7 +36,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	@Transactional
 	@Modifying
 	@Query("UPDATE Product p SET p.nameProduct=?1 ,p.price=?3,p.note=?4,p.sale=?5 ,p.image=?6 WHERE p.idProduct=?2")
-<<<<<<< HEAD
+
 	void updatenameProduct(String Name,Long id,Double price,String note,Double sale,String image);
 	
 	@Transactional
@@ -47,8 +47,5 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	
 	
 	
-=======
-	void updatenameProduct(String Name, Long id, Double price, String note, Double sale, String image);
 
->>>>>>> 1e9aa1c2d0f92cf6790be530f95a740574d4776b
 }
