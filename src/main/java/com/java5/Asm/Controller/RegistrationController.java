@@ -50,7 +50,7 @@ public class RegistrationController {
     @GetMapping("/verifyEmail")
     public String verifyEmail(@RequestParam("token") String token) {
         Optional<VerificationToken> theToken = tokenService.findByToken(token);
-        if (theToken.isPresent() && theToken.get().getUser().isEnabled()) {
+        if (theToken.isPresent() && theToken.get().getUser().getIsEnabled()) {
             return "redirect:/login?verified";
         }
         String verificationResult = tokenService.validateToken(token);

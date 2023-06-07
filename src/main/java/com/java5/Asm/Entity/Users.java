@@ -1,6 +1,8 @@
 package com.java5.Asm.Entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,6 +15,7 @@ import org.hibernate.annotations.NaturalId;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Users {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +25,7 @@ public class Users {
 	@NaturalId(mutable = true)
 	private String email;
 	private String password;
-	private boolean isEnabled = false;
+	private Boolean isEnabled;
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
 	private Collection<Role> roles;
@@ -34,4 +37,6 @@ public class Users {
 		this.password = password;
 		this.roles = roles;
 	}
+	
+	
 }
