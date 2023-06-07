@@ -132,7 +132,8 @@
 							<c:forEach var="product" items="${itemRandom}" varStatus="status"
 								begin="0" end="3">
 								<div class="sanpham col-sm-3 mt-5" style="margin-left: 0px;">
-									<img src="IMG/${product.image}" alt="" width="110px"></a>
+									<a href="<c:url value='/hoanghamobile/product?id=${product.idProduct}'/>"><img src="/IMG/${product.image}" alt=""
+										></a>
 									<div class="product-name mt-5">
 										<a href="">${product.nameProduct}</a>
 									</div>
@@ -161,7 +162,8 @@
 							<c:forEach var="product" items="${itemRandom}" varStatus="status"
 								begin="4" end="7">
 								<div class="sanpham col-sm-3 mt-5" style="margin-left: 0px;">
-									<img src="IMG/${product.image}" alt="" width="110px"></a>
+									<a href="<c:url value='/hoanghamobile/product?id=${product.idProduct}'/>"><img src="/IMG/${product.image}" alt=""
+								class="img-fluid"></a>
 									<div class="product-name mt-5">
 										<a href="">${product.nameProduct}</a>
 									</div>
@@ -187,7 +189,8 @@
 							<c:forEach var="product" items="${itemRandom}" varStatus="status"
 								begin="9" end="12">
 								<div class="sanpham col-sm-3 mt-5" style="margin-left: 0px;">
-									<img src="IMG/${product.image}" alt="" width="110px"></a>
+									<a href="<c:url value='/hoanghamobile/product?id=${product.idProduct}'/>"><img src="/IMG/${product.image}" alt=""
+								class="img-fluid"></a>
 									<div class="product-name mt-5">
 										<a href="">${product.nameProduct}</a>
 									</div>
@@ -241,7 +244,8 @@
 						<c:forEach var="product" items="${itemRandom}" begin="14" end="18">
 							<div class="product-like" style="height: 340px;">
 								<div class="sp mt-3">
-									<a href="#"><img src="IMG/${product.image}" alt=""></a>
+									<a href="<c:url value='/hoanghamobile/product?id=${product.idProduct}'/>"><img src="/IMG/${product.image}" alt=""
+								class="img-fluid"></a>
 								</div>
 
 								<div class="product-name pt-2">${product.nameProduct}</div>
@@ -266,7 +270,8 @@
 						<c:forEach var="product" items="${itemRandom}" begin="19" end="23">
 							<div class="product-like" style="height: 340px;">
 								<div class="sp mt-3">
-									<a href="#"><img src="IMG/${product.image}" alt=""></a>
+									<a href="<c:url value='/hoanghamobile/product?id=${product.idProduct}'/>"><img src="/IMG/${product.image}" alt=""
+								class="img-fluid"></a>
 								</div>
 
 								<div class="product-name pt-2">${product.nameProduct}</div>
@@ -290,7 +295,8 @@
 						<c:forEach var="product" items="${itemRandom}" begin="24" end="28">
 							<div class="product-like" style="height: 340px;">
 								<div class="sp mt-3">
-									<a href="#"><img src="IMG/${product.image}" alt=""></a>
+									<a href="<c:url value='/hoanghamobile/product?id=${product.idProduct}'/>"><img src="/IMG/${product.image}" alt=""
+								class="img-fluid"></a>
 								</div>
 
 								<div class="product-name pt-2">${product.nameProduct}</div>
@@ -344,7 +350,7 @@
 							</span>
 						</div>
 						<div class="sp mt-4">
-							<a href="#"><img src="/IMG/${product.image}" alt=""
+							<a href="<c:url value='/hoanghamobile/product?id=${product.idProduct}'/>"><img src="/IMG/${product.image}" alt=""
 								class="img-fluid"></a>
 
 						</div>
@@ -365,7 +371,8 @@
 								trả gó....</a> <strong>VÀ 5 KM KHÁC</strong>
 
 						</div>
-	<button formaction="">Giỏ Hàng</button>
+						<a href="cart/add/${product.idProduct}">Giỏi Hàng</a>
+					<!-- 	<button formaction="">Giỏ Hàng</button> -->
 					</div>
 				</c:if>
 
@@ -402,7 +409,7 @@
 							</div>
 						</c:if>
 						<div class="sp mt-4">
-							<a href="#"><img src="/IMG/${product.image}" alt=""
+							<a href="<c:url value='/hoanghamobile/product?id=${product.idProduct}'/>"><img src="/IMG/${product.image}" alt=""
 								class="img-fluid"></a>
 
 						</div>
@@ -454,7 +461,7 @@
 							</div>
 						</c:if>
 						<div class="sp mt-4">
-							<a href="#"><img src="/IMG/${product.image}" alt=""
+							<a href="<c:url value='/hoanghamobile/product?id=${product.idProduct}'/>"><img src="/IMG/${product.image}" alt=""
 								class="img-fluid"></a>
 
 						</div>
@@ -495,11 +502,11 @@
 				<c:if test="${status.count <= 10}">
 					<div class="product-like">
 						<div class="stiker">
-							<span> <img src="IMG/bao-hanh-24t.png" alt=" ">
+							<span>
 							</span>
 						</div>
 						<div class="sp mt-4">
-							<a href="#"><img src="/IMG/${product.image}" alt=""
+							<a href="<c:url value='/hoanghamobile/product?id=${product.idProduct}'/>"><img src="/IMG/${product.image}" alt=""
 								class="img-fluid"></a>
 						</div>
 						<div class="product-name pt-2">${product.nameProduct}</div>
@@ -962,6 +969,8 @@
 		</div>
 
 	</div>
+	
+	
 
 	<script src="../JSON/product.js"></script>
 	<script src="JSON/script.js"></script>
