@@ -47,5 +47,7 @@ public class HomeController {
 	public String findProduct() {
 		return "product/findproduct";
 	}
+	
+	
 
 }

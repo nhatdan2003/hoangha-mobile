@@ -9,10 +9,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Item {
 	
-	Integer id;
+	
+	Long id;
 	String name;
 	String image;
 	int qty = 1;
-	
+	Double price;
 	
 }

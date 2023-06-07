@@ -33,7 +33,7 @@ public class Product implements Serializable {
     private int Qty;
 
     public Product(Long idProduct, String nameProduct, Double price, String note, String type, String image,
-            Date date) {
+            Date date,int Qty) {
         this.idProduct = idProduct;
         this.nameProduct = nameProduct;
         this.price = price;
@@ -41,6 +41,7 @@ public class Product implements Serializable {
         this.type = type;
         this.image = image;
         this.date = date;
+        this.Qty = Qty;
     }
 
    

@@ -17,63 +17,35 @@ import com.java5.Asm.Entity.Product;
 import com.java5.Asm.Entity.Product_Details;
 
 import jakarta.mail.FetchProfile.Item;
+import poly.com.model.DB;
 
 
 @SessionScope
 @Service
-public class ProductServiceImpl  {
-//	
-	Map<Long, Item> map = new HashMap<>();
-//	
-//
-//	public void addProduct(Item id) {
-//	    
-//	  
-//	    
-//	 
-//	}
-//
-//	
-//	public void remove(Long id) {
-//		list.removeIf(items -> items.getIdProduct() == id);
-//		
-//	}
-//
-//
-//	public Product update(Long id, int qty) {
-//	Product item = map.get(id);
-//	if(item.getQty() > 0) {
-//		item.setQty(qty);
-//	}else {
-//		map.remove(id);
-//	}
-//	return item;
-//	}
+public class ProductServiceImpl implements ProductService {
 
-
-	public void clear() {
-		map.clear();
-		
-	}
-
-
-	public Collection<Item> getItems() {
+	@Override
+	public Item add(Item product) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
-//	public int getCount() {
-//		// TODO Auto-generated method stub
-//		return map.values().stream().mapToInt(item -> item.getQty()).sum();
-//	}
-
-
-//	public double getAmount() {
-//		// TODO Auto-generated method stub
-//		return map.values().stream().mapToInt(item -> item.getQty()).sum();
-//	}
-
-
+////	
+//	Map<Long, Item> map = new HashMap<Long, Item>();
+//
+//	@Override
+//	public Item add(Item id) {
+//		Item item = map.get(id);
+//		if(item == null) {
+//			item = Product.get
+//			item.setQty(1);
+//			map.put(id, item);
+//		}else {
+//			item.setQty(item.getQty()+1);
+//		}
+//		return item;
+		
+	}
 	
-}
+	
+	
+	

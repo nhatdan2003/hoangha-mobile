@@ -80,5 +80,13 @@ public class ProductController {
 				items.getSale(), items.getImage());
 		return "admin/edit-product";
 	}
+	
+	@RequestMapping("/hoanghamobile/product")
+	public String viewProduct(Model model , @RequestParam("id") Long id) {
+		Product items = dao.findByIdProduct(id);
+		model.addAttribute("item",items);
+		
+		return "product/productDetail";
+	}
 
 }

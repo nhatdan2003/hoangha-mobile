@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <!doctype html>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     <html lang="en">
 
     <head>
@@ -12,9 +14,9 @@
         <!-- Bootstrap CSS v5.2.1 -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
             integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="CSS/hoangha.css">
-        <link rel="stylesheet" href="CSS/productDetails.css">
-        <link rel="stylesheet" href="CSS/style.css">
+        <link rel="stylesheet" href="../CSS/hoangha.css">
+        <link rel="stylesheet" href="../CSS/productDetails.css">
+        <link rel="stylesheet" href="../CSS/style.css">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
@@ -381,8 +383,7 @@
         <main>
             <div class="container">
                 <div class="row top-product">
-                    <h1>Laptop ASUS Gaming TUF FX506LHB-HN188W (i5-10300H/8GB/512GB/GTX1650 4GB/15.6" IPS 144Hz/Windows
-                        10) - Chính hãng</h1>
+                    <h1>${item.nameProduct}</h1>
                 </div>
                 <div class="row pt-2">
                     <!--Shile show-->
@@ -397,19 +398,19 @@
                             </span>
                             <div class="img-wrap">
                                 <!-- <a href=""></a> -->
-                                <img src="IMG/img1.jpeg" alt="" />
+                                <img src="../IMG/${item.image}" alt="" />
                             </div>
                         </div>
                         <div class="list-img">
                             <!--img child-->
                             <div>
-                                <img src="IMG/img1.jpeg" alt="" />
+                                <img src="../IMG/img1.jpeg" alt="" />
                             </div>
                             <div>
-                                <img src="IMG/img2.jpeg" alt="" />
+                                <img src="../IMG/img2.jpeg" alt="" />
                             </div>
                             <div>
-                                <img src="IMG/img3.jpeg" alt="" />
+                                <img src="../IMG/img3.jpeg" alt="" />
                             </div>
 
                         </div>
@@ -420,12 +421,21 @@
                     <div class="col-5 ">
                         <div class="product-center">
                             <p class="price current-product-price">
-                                <strong>7,390,000 ₫</strong> <!--lấy giá của sp lên -->
-                                <i><strike>15,490,000 ₫</strike></i>
+                                <strong><fmt:formatNumber value="${item.price}"
+									type="currency" currencySymbol="₫" /></strong> <!--lấy giá của sp lên -->
+                          
+                                <c:if test="${item.sale != null && item.sale != 0}">
+								
+								 <i><strike><fmt:formatNumber value="${item.sale}" type="currency"
+										currencySymbol="₫" /></strike></i>
+									
+								
+								<del>₫</del>
+							</c:if>
+                                
                                 <i> | Giá đã bao gồm 10% VAT</i>
                                 <br>
-                                <label class="text-dark" style="padding-top: 1rem">Sản phẩm bán giá Hotsale với số lượng
-                                    có hạn</label>
+                                <label class="text-dark" style="padding-top: 1rem">Sản phẩm Hiện Có : </label>
                             </p>
                             <p class="freeship text-center">
                                 <i class="fa-solid fa-truck-arrow-right"></i>
@@ -444,7 +454,8 @@
                                     <input class="form-check-input" type="checkbox" value=""
                                         id="flexCheckIndeterminate">
                                     <label><strong class="mau">Đen</strong></label> <br>
-                                    <span><strong class="price">15,490,000 ₫</strong></span>
+                                    <span><strong class="price"><fmt:formatNumber value="${item.price}" type="currency"
+										currencySymbol="d" /></strong></span>
                                 </div>
 
                             </div>
