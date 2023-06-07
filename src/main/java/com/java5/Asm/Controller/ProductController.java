@@ -85,7 +85,9 @@ public class ProductController {
 	public String viewProduct(Model model , @RequestParam("id") Long id) {
 		Product items = dao.findByIdProduct(id);
 		model.addAttribute("item",items);
-		
+		List<Product> itemRandom = dao.findRandom5Products();
+		Collections.shuffle(itemRandom);
+		model.addAttribute("itemRandom", itemRandom);
 		return "product/productDetail";
 	}
 

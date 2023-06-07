@@ -133,7 +133,7 @@
 								begin="0" end="3">
 								<div class="sanpham col-sm-3 mt-5" style="margin-left: 0px;">
 									<a href="<c:url value='/hoanghamobile/product?id=${product.idProduct}'/>"><img src="/IMG/${product.image}" alt=""
-								class="img-fluid"></a>
+										></a>
 									<div class="product-name mt-5">
 										<a href="">${product.nameProduct}</a>
 									</div>
