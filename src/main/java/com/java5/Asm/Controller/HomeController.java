@@ -6,21 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.java5.Asm.Entity.Product;
+import com.java5.Asm.Entity.Users;
 import com.java5.Asm.Repository.ProductRepository;
+import com.java5.Asm.Repository.UserRepository;
 
 @Controller
 public class HomeController {
 	@Autowired
 	ProductRepository dao;
 
-	@GetMapping("/hoanghamobile/login")
-	public String Login() {
-		return "admin/login";
-	}
+	@Autowired
+	UserRepository dao1;
 
 	@RequestMapping("/hoanghamobile/add-product")
 	public String addProduct() {
@@ -33,7 +31,9 @@ public class HomeController {
 	}
 
 	@RequestMapping("/hoanghamobile/account")
-	public String account() {
+	public String account(Model model) {
+		List<Users> items = dao1.fillAll1();
+		model.addAttribute("items", items);
 		return "admin/account";
 	}
 

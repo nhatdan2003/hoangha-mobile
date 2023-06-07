@@ -1,6 +1,5 @@
 package com.java5.Asm.Entity;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,7 +15,7 @@ import lombok.Setter;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long id_role;
+    private Long id;
     private String name;
 
     public Role(String name) {

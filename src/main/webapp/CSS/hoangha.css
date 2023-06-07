@@ -654,3 +654,8 @@ header .navbar-nav li{
     background-color: #e5e5e5;
     width: 100%;
 }
+
+.bg-custom {
+    background-color: #00483d;
+}
+
