@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.java5.Asm.Entity.Product;
 import com.java5.Asm.Repository.ProductRepository;
@@ -66,11 +67,17 @@ public class ProductController {
 	}
 	@RequestMapping("/hoanghamobile/updateproduct")
 	public String updateProduct(@ModelAttribute("items") Product items) {
+		
 		System.out.println(items.getIdProduct());
 		System.out.println(items.getNameProduct());
 	    dao.updatenameProduct(items.getNameProduct(),items.getIdProduct()
 	    		,items.getPrice(),items.getNote(),items.getSale(),items.getImage());
 	    return "admin/edit-product";
+	}
+	@RequestMapping("/hoanghamobile/deleteproduct/")
+	public String deleteProduct(@RequestParam("id") Long id) {
+	    dao.deleteProduct(id);
+	    return "redirect:/hoanghamobile/products";
 	}
 	
 }

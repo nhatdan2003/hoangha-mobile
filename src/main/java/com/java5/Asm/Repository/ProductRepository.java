@@ -36,6 +36,10 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 	@Query("UPDATE Product p SET p.nameProduct=?1 ,p.price=?3,p.note=?4,p.sale=?5 ,p.image=?6 WHERE p.idProduct=?2")
 	void updatenameProduct(String Name,Long id,Double price,String note,Double sale,String image);
 	
+	@Transactional
+	@Modifying
+	@Query("DELETE FROM Product p WHERE p.idProduct = ?1")
+	void deleteProduct(Long id);
 	
 	
 	
