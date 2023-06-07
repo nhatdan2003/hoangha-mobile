@@ -4,8 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,13 +11,15 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Data
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public class Product implements Serializable{
+public class Product implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idProduct;
@@ -30,7 +30,10 @@ public class Product implements Serializable{
     private String image;
     private Date date;
     private Double sale;
-    public Product(Long idProduct, String nameProduct, Double price, String note, String type, String image, Date date) {
+    private int Qty;
+
+    public Product(Long idProduct, String nameProduct, Double price, String note, String type, String image,
+            Date date,int Qty) {
         this.idProduct = idProduct;
         this.nameProduct = nameProduct;
         this.price = price;
@@ -38,6 +41,8 @@ public class Product implements Serializable{
         this.type = type;
         this.image = image;
         this.date = date;
+        this.Qty = Qty;
     }
-	
+
+   
 }

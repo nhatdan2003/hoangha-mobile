@@ -37,7 +37,8 @@
 							class="collapse navbar-collapse text-right"
 							id="navbarNavDropdown">
 							<ul class="navbar-nav ml-auto float-left">
-								<li class="nav-item"><a class="nav-link" href="/hoanghamobile">Trang Chủ</a></li>
+								<li class="nav-item"><a class="nav-link"
+									href="/hoanghamobile">Trang Chủ</a></li>
 								<li class="nav-item"><a class="nav-link" href="#">Giới
 										thiệu</a></li>
 								<li class="nav-item"><a class="nav-link" href="#">Sản
@@ -153,8 +154,8 @@
 						<form action="/hoanghamobile/findproduct" method="GET">
 							<div class="input-group no-shadow">
 								<input type="text" class="form-control"
-									placeholder="Hôm nay bạn cần tìm gì ?" name="keyword" value="${keyword}"
-									ng-model="find"
+									placeholder="Hôm nay bạn cần tìm gì ?" name="keyword"
+									value="${keyword}" ng-model="find"
 									style="height: 40px; border-radius: 15px; font-weight: bold; font-size: 13px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border: 2px gray;"
 									ng-model="search">
 								<div class="input-group-btn">
@@ -274,9 +275,10 @@
 			</div>
 			<div class="row text-center">
 				<c:if test="${empty itemfind}">
-					<div class="no-product text-center" style="font-size: 20px">Không có sản phẩm</div>
+					<div class="no-product text-center" style="font-size: 20px">Không
+						có sản phẩm</div>
 				</c:if>
-				<c:forEach var="product" items="${itemfind}" varStatus="status">
+				<c:forEach var="product" items="${page.content}" varStatus="status">
 					<c:if test="${status.count <= 20}">
 						<div class="product-like">
 							<div class="stiker">
@@ -307,6 +309,22 @@
 					</c:if>
 
 				</c:forEach>
+			</div>
+			<div class="contrainer text-center">
+				<ul class="pagination pt-4" style="margin-left: 450px;font-size: 15px">
+					<li class="page-item"><a
+						class="page-link bg-custom text-white"
+						href="/hoanghamobile/findproduct?p=0">First</a></li>
+					<li class="page-item"><a
+						class="page-link bg-custom text-white"
+						href="/hoanghamobile/findproduct?p=${page.number-1}">Previous</a></li>
+					<li class="page-item"><a
+						class="page-link bg-custom text-white"
+						href="/hoanghamobile/findproduct?p=${page.number+1}">Next</a></li>
+					<li class="page-item"><a
+						class="page-link bg-custom text-white"
+						href="/hoanghamobile/findproduct?p=${page.totalPages-1}">Last</a></li>
+				</ul>
 			</div>
 		</div>
 		<div class="container pt-5 ">
@@ -354,25 +372,26 @@
 					<div class="link-content ">
 						<h4>Thanh Toán Miễn Phí</h4>
 						<ul>
-							<li><img src="IMG/logo-visa.png " alt=" " class="img-fluid ">
-								<img src="IMG/logo-master.png " alt=" " class="img-fluid ">
-							</li>
-							<li><img src="IMG/logo-jcb.png " alt=" " class="img-fluid ">
-								<img src="IMG/logo-samsungpay.png " alt=" " class="img-fluid ">
-							</li>
-							<li><img src="IMG/logo-atm.png " alt=" " class="img-fluid ">
-								<img src="IMG/logo-vnpay.png " alt=" " class="img-fluid ">
-							</li>
+							<li><img src="../IMG/logo-visa.png " alt=" "
+								class="img-fluid "> <img src="../IMG/logo-master.png "
+								alt=" " class="img-fluid "></li>
+							<li><img src="../IMG/logo-jcb.png " alt=" "
+								class="img-fluid "> <img src="../IMG/logo-samsungpay.png "
+								alt=" " class="img-fluid "></li>
+							<li><img src="../IMG/logo-atm.png " alt=" "
+								class="img-fluid "> <img src="../IMG/logo-vnpay.png "
+								alt=" " class="img-fluid "></li>
 						</ul>
 					</div>
 					<div class="link-content ">
 						<h4>Hình Thức Vận Chuyển</h4>
 						<ul>
-							<li><img src="IMG/nhattin.jpg " alt=" " class="img-fluid ">
-								<img src="IMG/vnpost.jpg " alt=" " class="img-fluid "></li>
+							<li><img src="../IMG/nhattin.jpg " alt=" "
+								class="img-fluid "> <img src="../IMG/vnpost.jpg " alt=" "
+								class="img-fluid "></li>
 						</ul>
 						<div>
-							<img src="IMG/logo-bct.png " alt=" " class="img-fluid ">
+							<img src="../IMG/logo-bct.png " alt=" " class="img-fluid ">
 						</div>
 					</div>
 
@@ -398,7 +417,6 @@
 
 
 	</div>
-
 
 	<script src=" https://code.jquery.com/jquery-3.2.1.slim.min.js "
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN "

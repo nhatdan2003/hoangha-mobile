@@ -13,18 +13,15 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="CSS/hoangha.css">
+<link rel="stylesheet" href="../CSS/hoangha.css">
 <link rel="stylesheet"
 	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
-<body>
+<body ng-app="myApp" ng-controller="myCtrl">
 
 
 	<div class="container mt-4">
@@ -119,8 +116,8 @@
 
 			</div>
 		</div>
-		
-		
+
+
 		<div id="carouselId2" class="carousel slide" data-ride="carousel">
 			<ol class="carousel-indicators">
 				<li data-target="#carouselId2" data-slide-to="0" class="active"></li>
@@ -132,11 +129,41 @@
 					<div class="product"
 						style="background-color: #fff; border-radius: 5px; box-shadow: 0 4px 6px #00000029; height: 280px;">
 						<div class="row col-sm-12 text-center" style="margin-left: 10px;">
-							<c:forEach var="product" items="${itemRandom}"
-								varStatus="status" begin="0" end="3">
+							<c:forEach var="product" items="${itemRandom}" varStatus="status"
+								begin="0" end="3">
 								<div class="sanpham col-sm-3 mt-5" style="margin-left: 0px;">
-									<img
-										src="IMG/${product.image}" alt="" width="110px"></a>
+									<a href="<c:url value='/hoanghamobile/product?id=${product.idProduct}'/>"><img src="/IMG/${product.image}" alt=""
+										></a>
+									<div class="product-name mt-5">
+										<a href="">${product.nameProduct}</a>
+									</div>
+									<div class="product-price mt-2">
+										<strong><fmt:formatNumber value="${product.price}"
+												type="currency" currencySymbol="₫" /></strong>
+										<c:if test="${product.sale != null && product.sale != 0}">
+											<del>
+												<fmt:formatNumber value="${product.sale}" type="currency"
+													currencySymbol="₫" />
+											</del>
+										</c:if>
+									</div>
+									
+								</div>
+							</c:forEach>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="carousel-item">
+					<div class="product"
+						style="background-color: #fff; border-radius: 5px; box-shadow: 0 4px 6px #00000029; height: 280px;">
+						<div class="row col-sm-12 text-center" style="margin-left: 10px;">
+							<c:forEach var="product" items="${itemRandom}" varStatus="status"
+								begin="4" end="7">
+								<div class="sanpham col-sm-3 mt-5" style="margin-left: 0px;">
+									<a href="<c:url value='/hoanghamobile/product?id=${product.idProduct}'/>"><img src="/IMG/${product.image}" alt=""
+								class="img-fluid"></a>
 									<div class="product-name mt-5">
 										<a href="">${product.nameProduct}</a>
 									</div>
@@ -154,18 +181,16 @@
 							</c:forEach>
 						</div>
 					</div>
-
 				</div>
-
 				<div class="carousel-item">
 					<div class="product"
 						style="background-color: #fff; border-radius: 5px; box-shadow: 0 4px 6px #00000029; height: 280px;">
 						<div class="row col-sm-12 text-center" style="margin-left: 10px;">
-							<c:forEach var="product" items="${itemRandom}"
-								varStatus="status" begin="4" end="7">
+							<c:forEach var="product" items="${itemRandom}" varStatus="status"
+								begin="9" end="12">
 								<div class="sanpham col-sm-3 mt-5" style="margin-left: 0px;">
-									<img
-										src="IMG/${product.image}" alt="" width="110px"></a>
+									<a href="<c:url value='/hoanghamobile/product?id=${product.idProduct}'/>"><img src="/IMG/${product.image}" alt=""
+								class="img-fluid"></a>
 									<div class="product-name mt-5">
 										<a href="">${product.nameProduct}</a>
 									</div>
@@ -180,33 +205,7 @@
 										</c:if>
 									</div>
 								</div>
-							</c:forEach>
-						</div>
-					</div>
-				</div>
-				<div class="carousel-item">
-					<div class="product"
-						style="background-color: #fff; border-radius: 5px; box-shadow: 0 4px 6px #00000029; height: 280px;">
-						<div class="row col-sm-12 text-center" style="margin-left: 10px;">
-							<c:forEach var="product" items="${itemRandom}"
-								varStatus="status" begin="9" end="13">
-								<div class="sanpham col-sm-3 mt-5" style="margin-left: 0px;">
-									<img
-										src="IMG/${product.image}" alt="" width="110px"></a>
-									<div class="product-name mt-5">
-										<a href="">${product.nameProduct}</a>
-									</div>
-									<div class="product-price mt-2">
-										<strong><fmt:formatNumber value="${product.price}"
-												type="currency" currencySymbol="₫" /></strong>
-										<c:if test="${product.sale != null && product.sale != 0}">
-											<del>
-												<fmt:formatNumber value="${product.sale}" type="currency"
-													currencySymbol="₫" />
-											</del>
-										</c:if>
-									</div>
-								</div>
+
 							</c:forEach>
 						</div>
 					</div>
@@ -242,80 +241,77 @@
 			<div class="carousel-inner" role="listbox">
 				<div class="carousel-item active">
 					<div class="row text-center">
-					<c:forEach var="product" items="${itemRandom}" begin="14" end="18">
-						<div class="product-like"
-							
-							style="height: 340px;">
-							<div class="sp mt-3">
-								<a href="#"><img src="IMG/${product.image}" alt=""></a>
-							</div>
+						<c:forEach var="product" items="${itemRandom}" begin="14" end="18">
+							<div class="product-like" style="height: 340px;">
+								<div class="sp mt-3">
+									<a href="<c:url value='/hoanghamobile/product?id=${product.idProduct}'/>"><img src="/IMG/${product.image}" alt=""
+								class="img-fluid"></a>
+								</div>
 
-							<div class="product-name pt-2">${product.nameProduct}</div>
-							<div class="product-price pt-2">
-								<strong><fmt:formatNumber value="${product.price}"
-												type="currency" currencySymbol="₫" /></strong>
-										<c:if test="${product.sale != null && product.sale != 0}">
-											<del>
-												<fmt:formatNumber value="${product.sale}" type="currency"
-													currencySymbol="₫" />
-											</del>
-										</c:if>
+								<div class="product-name pt-2">${product.nameProduct}</div>
+								<div class="product-price pt-2">
+									<strong><fmt:formatNumber value="${product.price}"
+											type="currency" currencySymbol="₫" /></strong>
+									<c:if test="${product.sale != null && product.sale != 0}">
+										<del>
+											<fmt:formatNumber value="${product.sale}" type="currency"
+												currencySymbol="₫" />
+										</del>
+									</c:if>
+								</div>
 							</div>
-						</div>
-					</c:forEach>
-						
+						</c:forEach>
+
 
 					</div>
 				</div>
 				<div class="carousel-item">
 					<div class="row text-center">
 						<c:forEach var="product" items="${itemRandom}" begin="19" end="23">
-						<div class="product-like"
-							
-							style="height: 340px;">
-							<div class="sp mt-3">
-								<a href="#"><img src="IMG/${product.image}" alt=""></a>
-							</div>
+							<div class="product-like" style="height: 340px;">
+								<div class="sp mt-3">
+									<a href="<c:url value='/hoanghamobile/product?id=${product.idProduct}'/>"><img src="/IMG/${product.image}" alt=""
+								class="img-fluid"></a>
+								</div>
 
-							<div class="product-name pt-2">${product.nameProduct}</div>
-							<div class="product-price pt-2">
-								<strong><fmt:formatNumber value="${product.price}"
-												type="currency" currencySymbol="₫" /></strong>
-										<c:if test="${product.sale != null && product.sale != 0}">
-											<del>
-												<fmt:formatNumber value="${product.sale}" type="currency"
-													currencySymbol="₫" />
-											</del>
-										</c:if>
+								<div class="product-name pt-2">${product.nameProduct}</div>
+								<div class="product-price pt-2">
+									<strong><fmt:formatNumber value="${product.price}"
+											type="currency" currencySymbol="₫" /></strong>
+									<c:if test="${product.sale != null && product.sale != 0}">
+										<del>
+											<fmt:formatNumber value="${product.sale}" type="currency"
+												currencySymbol="₫" />
+										</del>
+									</c:if>
+								</div>
 							</div>
-						</div>
-					</c:forEach>
+						</c:forEach>
 
 					</div>
 				</div>
 				<div class="carousel-item">
 					<div class="row text-center">
 						<c:forEach var="product" items="${itemRandom}" begin="24" end="28">
-						<div class="product-like"
-							
-							style="height: 340px;">
-							<div class="sp mt-3">
-								<a href="#"><img src="IMG/${product.image}" alt=""></a>
-							</div>
+							<div class="product-like" style="height: 340px;">
+								<div class="sp mt-3">
+									<a href="<c:url value='/hoanghamobile/product?id=${product.idProduct}'/>"><img src="/IMG/${product.image}" alt=""
+								class="img-fluid"></a>
+								</div>
 
-							<div class="product-name pt-2">${product.nameProduct}</div>
-							<div class="product-price pt-2">
-								<strong><fmt:formatNumber value="${product.price}"
-												type="currency" currencySymbol="₫" /></strong>
-										<c:if test="${product.sale != null && product.sale != 0}">
-											<del>
-												<fmt:formatNumber value="${product.sale}" type="currency"
-													currencySymbol="₫" />
-											</del>
-										</c:if>
+								<div class="product-name pt-2">${product.nameProduct}</div>
+								<div class="product-price pt-2">
+									<strong><fmt:formatNumber value="${product.price}"
+											type="currency" currencySymbol="₫" /></strong>
+									<c:if test="${product.sale != null && product.sale != 0}">
+										<del>
+											<fmt:formatNumber value="${product.sale}" type="currency"
+												currencySymbol="₫" />
+										</del>
+									</c:if>
+								</div>
 							</div>
-						</div>
-					</c:forEach>
+						</c:forEach>
 
 
 
@@ -348,11 +344,13 @@
 				<c:if test="${status.count <= 10}">
 					<div class="product-like">
 						<div class="stiker">
-							<span> <img src="https://hoanghamobile.com/Content/web/sticker/apple.png" alt=" ">
+							<span> <img
+								src="https://hoanghamobile.com/Content/web/sticker/apple.png"
+								alt=" ">
 							</span>
 						</div>
 						<div class="sp mt-4">
-							<a href="#"><img src="/IMG/${product.image}" alt=""
+							<a href="<c:url value='/hoanghamobile/product?id=${product.idProduct}'/>"><img src="/IMG/${product.image}" alt=""
 								class="img-fluid"></a>
 
 						</div>
@@ -373,11 +371,13 @@
 								trả gó....</a> <strong>VÀ 5 KM KHÁC</strong>
 
 						</div>
-
+						<a href="cart/add/${product.idProduct}">Giỏi Hàng</a>
+					<!-- 	<button formaction="">Giỏ Hàng</button> -->
 					</div>
 				</c:if>
 
 			</c:forEach>
+
 		</div>
 
 	</div>
@@ -390,22 +390,26 @@
 		</div>
 		<div class="row text-center">
 			<c:forEach var="product" items="${itemSamsung}" varStatus="status">
-				<c:if test="${status.count <= 20}">
+				<c:if test="${status.count <= 15}">
 					<div class="product-like">
-					<c:if test="${product.price<=5000000}">
-					<div class="stiker" style="margin-top: 10px ; position: absolute;">
-							<span> <img src="https://hoanghamobile.com/Content/web/sticker/new-re-het-co.png" alt=" ">
-							</span>
-						</div>
-					</c:if>
-					<c:if test="${product.price>5000000}">
-					<div class="stiker" style="margin-top: 10px ; position: absolute;">
-							<span> <img src="https://hoanghamobile.com/Content/web/sticker/bao-hanh-18t.png" alt=" ">
-							</span>
-						</div>
-					</c:if>	
+						<c:if test="${product.price<=5000000}">
+							<div class="stiker" style="margin-top: 10px; position: absolute;">
+								<span> <img
+									src="https://hoanghamobile.com/Content/web/sticker/new-re-het-co.png"
+									alt=" ">
+								</span>
+							</div>
+						</c:if>
+						<c:if test="${product.price>5000000}">
+							<div class="stiker" style="margin-top: 10px; position: absolute;">
+								<span> <img
+									src="https://hoanghamobile.com/Content/web/sticker/bao-hanh-18t.png"
+									alt=" ">
+								</span>
+							</div>
+						</c:if>
 						<div class="sp mt-4">
-							<a href="#"><img src="/IMG/${product.image}" alt=""
+							<a href="<c:url value='/hoanghamobile/product?id=${product.idProduct}'/>"><img src="/IMG/${product.image}" alt=""
 								class="img-fluid"></a>
 
 						</div>
@@ -432,7 +436,61 @@
 
 			</c:forEach>
 		</div>
-	</div>
+		<div class="container text-center pt-4">
+		<div class="hienthi" style="font-size: 15px; color: #00483d; font-weight: bold;" ng-click="showProducts()" ng-hide="hienthi==true">Xem Thêm</div>
+		</div>
+        
+        <div class="row text-center" ng-show="hienthi==true">
+            <c:forEach var="product" items="${itemSamsung}" varStatus="status" begin="20" end="40">
+				<c:if test="${status.count <= 20}">
+					<div class="product-like">
+						<c:if test="${product.price<=5000000}">
+							<div class="stiker" style="margin-top: 10px; position: absolute;">
+								<span> <img
+									src="https://hoanghamobile.com/Content/web/sticker/new-re-het-co.png"
+									alt=" ">
+								</span>
+							</div>
+						</c:if>
+						<c:if test="${product.price>5000000}">
+							<div class="stiker" style="margin-top: 10px; position: absolute;">
+								<span> <img
+									src="https://hoanghamobile.com/Content/web/sticker/bao-hanh-18t.png"
+									alt=" ">
+								</span>
+							</div>
+						</c:if>
+						<div class="sp mt-4">
+							<a href="<c:url value='/hoanghamobile/product?id=${product.idProduct}'/>"><img src="/IMG/${product.image}" alt=""
+								class="img-fluid"></a>
+
+						</div>
+						<div class="product-name pt-2">${product.nameProduct}</div>
+						<div class="product-price pt-2">
+							<strong><fmt:formatNumber value="${product.price}"
+									type="currency" currencySymbol="₫" /></strong>
+							<c:if test="${product.sale != null && product.sale != 0}">
+								<del>
+									<fmt:formatNumber value="${product.sale}" type="currency"
+										currencySymbol="₫" />
+								</del>
+								<del>₫</del>
+							</c:if>
+						</div>
+						<div class="sale">
+							<span class="bag">KM</span> <a> Ưu đãi tặng 200.000đ khi mua
+								trả gó....</a> <strong>VÀ 5 KM KHÁC</strong>
+
+						</div>
+
+					</div>
+				</c:if>
+
+			</c:forEach>
+        </div>
+        <div class="hienthi text-center pt-4" style="font-size: 15px; color: #00483d; font-weight: bold;" ng-click="hideProducts()" ng-hide="hienthi==false">Thu Gọn</div>
+    </div>
+	
 	<div class="container pt-5">
 		<div class="box-product-youlike">
 			<h4>
@@ -444,11 +502,11 @@
 				<c:if test="${status.count <= 10}">
 					<div class="product-like">
 						<div class="stiker">
-							<span> <img src="IMG/bao-hanh-24t.png" alt=" ">
+							<span>
 							</span>
 						</div>
 						<div class="sp mt-4">
-							<a href="#"><img src="/IMG/${product.image}" alt=""
+							<a href="<c:url value='/hoanghamobile/product?id=${product.idProduct}'/>"><img src="/IMG/${product.image}" alt=""
 								class="img-fluid"></a>
 						</div>
 						<div class="product-name pt-2">${product.nameProduct}</div>
@@ -912,21 +970,30 @@
 
 	</div>
 	
-	<script src="JSON/product.js ">
+	
+
+	<script src="../JSON/product.js"></script>
+	<script src="JSON/script.js"></script>
+	<script src="JSON/swiped-events.js"></script>
         </script>
-        <script src="JSON/script.js"></script>
-        <script src="JSON/swiped-events.js"></script>
-	<script src=" https://code.jquery.com/jquery-3.2.1.slim.min.js "
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN "
-		crossorigin="anonymous "></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js "
-		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q "
-		crossorigin="anonymous "></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js "
-		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl "
-		crossorigin="anonymous "></script>
+        <script src="../JSON/script.js"></script>
+        <script src="../JSON/swiped-events.js"></script>
+        <script src=" https://code.jquery.com/jquery-3.2.1.slim.min.js "
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN "
+            crossorigin="anonymous "></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js "
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q "
+            crossorigin="anonymous "></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js "
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl "
+            crossorigin="anonymous "></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+            integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+            </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+            integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+            </script>
 </body>
 
 </html>
