@@ -42,10 +42,6 @@ public class HomeController {
 		return "product/infoproduct";
 	}
 
-	@RequestMapping("hoanghamobile/cartproduct")
-	public String cartProduct() {
-		return "product/cartproduct";
-	}
 
 	@RequestMapping("hoanghamobile/findproducts")
 	public String findProduct() {

@@ -11,6 +11,8 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Data
 @Entity
@@ -28,6 +30,7 @@ public class Product implements Serializable {
     private String image;
     private Date date;
     private Double sale;
+    private int Qty;
 
     public Product(Long idProduct, String nameProduct, Double price, String note, String type, String image,
             Date date) {
@@ -40,4 +43,5 @@ public class Product implements Serializable {
         this.date = date;
     }
 
+   
 }

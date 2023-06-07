@@ -365,7 +365,8 @@
 								trả gó....</a> <strong>VÀ 5 KM KHÁC</strong>
 
 						</div>
-	<button formaction="">Giỏ Hàng</button>
+						<a href="/cart/add/${product.idProduct}">Giỏi Hàng</a>
+					<!-- 	<button formaction="">Giỏ Hàng</button> -->
 					</div>
 				</c:if>
 
@@ -962,6 +963,8 @@
 		</div>
 
 	</div>
+	
+	
 
 	<script src="../JSON/product.js"></script>
 	<script src="JSON/script.js"></script>

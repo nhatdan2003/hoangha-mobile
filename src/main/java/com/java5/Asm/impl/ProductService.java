@@ -2,13 +2,18 @@ package com.java5.Asm.impl;
 
 import java.util.Collection;
 
-import poly.com.model.Item;
+import com.java5.Asm.Entity.Product;
 
-public class ProductService {
+import jakarta.mail.FetchProfile.Item;
 
-	Item add(Integer id);
-	void remove(Integer id);
-	Item update(Integer id, int qty);
+
+
+
+public interface ProductService {
+
+	Product addProduct(Long id);
+	void remove(Long id);
+	Product update(Long id, int qty);
 	void clear();
 	Collection<Item> getItems();
 	int getCount();
