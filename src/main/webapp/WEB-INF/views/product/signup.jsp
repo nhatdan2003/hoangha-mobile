@@ -223,94 +223,73 @@ a {
 	<div class="container">
 		<div class="col-md-6 mx-auto p-0">
 			<div class="row mt-4">
-				<c:if test="${param.error}">
-					<div class="col-sm-8">
-						<p class="alert alert-danger alert-dismissible fade show"
-							role="alert">
-							<c:out value="Invalid username or password" />
-						</p>
-					</div>
-				</c:if>
-				<c:if test="${param.reset_success}">
+				<c:if test="${param.success}">
 					<div class="col-sm-8">
 						<p class="alert alert-danger alert-dismissible fade show"
 							role="alert">
 							<c:out
-								value="You have successfully reset your password, please
-						log in here" />
-						</p>
-					</div>
-				</c:if>
-				<c:if test="${param.verified}">
-					<div class="col-sm-8">
-						<p class="alert alert-danger alert-dismissible fade show"
-							role="alert">
-							<c:out
-								value="This account has already been verified, please
-						log in here." />
-						</p>
-					</div>
-				</c:if>
-				<c:if test="${param.valid}">
-					<div class="col-sm-8">
-						<p class="alert alert-danger alert-dismissible fade show"
-							role="alert">
-							<c:out value="Email verified successfully, please log in here." />
-						</p>
-					</div>
-				</c:if>
-				<c:if test="${param.param.logout}">
-					<div class="col-sm-8">
-						<p class="alert alert-danger alert-dismissible fade show"
-							role="alert">
-							<c:out value="You have been logged out." />
+								value="Registration successful, please check your email to complete your registration." />
 						</p>
 					</div>
 				</c:if>
 			</div>
-			<form action="${pageContext.request.contextPath}/hoanghamobile/login" method="post">
-				<div class="card">
-					<div class="login-box">
-						<div class="login-snip">
-							<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label
-								for="tab-1" class="tab">Login</label> <input id="tab-2"
-								type="radio" name="tab" class="sign-up">
-							<div class="login-space">
-								<div class="login">
-									<div class="group">
-										<label for="email" class="label">Email</label> <input
-											id="email" name="email" required autofocus="autofocus"
-											type="text" class="input" placeholder="Enter your Email">
+			<div class="card">
+				<div class="login-box">
+					<div class="login-snip">
+						<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label
+							for="tab-1" class="tab">Login</label> <input id="tab-2"
+							type="radio" name="tab" class="sign-up">
+						<div class="login-space">
+							<div class="login">
+								<form
+									action="${pageContext.request.contextPath}/hoanghamobile/signup">
+									<c:set var="user" value="${user}" />
+									<div class="sign-up-form">
+										<div class="group">
+											<label for="user" class="label">Fristname</label> <input
+												id="firstName" name="firstName"
+												value="<c:out value='${user.firstName}'/>" type="text"
+												class="input" placeholder="Create your Username ">
+										</div>
+										<div class="group">
+											<label for="pass" class="label">Lastname</label> <input
+												id="lastName" name="lastName" type="password"
+												value="<c:out value='${user.lastName}'/>" class="input"
+												data-type="password" placeholder="Create your password">
+										</div>
+										<div class="group">
+											<label for="pass" class="label">Password</label> <input
+												id="password" type="password"
+												value="<c:out value='${user.password}'/>" class="input"
+												data-type="password" placeholder="Create your password">
+										</div>
+										<div class="group">
+											<label for="pass" class="label">Repeat Password</label> <input
+												id="pass" type="password" class="input" data-type="password"
+												placeholder="Repeat your password">
+										</div>
+										<div class="group">
+											<label for="pass" class="label">Email Address</label> <input
+												id="email" name="email"
+												value="<c:out value='${user.email}'/>" type="text"
+												class="input" placeholder="Enter your email address">
+										</div>
+										<div class="group">
+											<input type="submit" class="button" value="Sign Up">
+										</div>
+										<div class="hr"></div>
+										<div class="foot">
+											<label for="tab-1">Already Member?</label>
+										</div>
 									</div>
-									<div class="group">
-										<label for="password" class="label">Password</label> <input
-											name="password" id="password" required autofocus="autofocus"
-											type="password" class="input" data-type="password"
-											placeholder="Enter your password">
-									</div>
-									<div class="group">
-										<input id="check" type="checkbox" class="check" checked>
-										<label for="check"><span class="icon"></span> Keep me
-											Signed in</label>
-									</div>
-									<div class="group">
-										<input type="submit" class="button" value="Sign In">
-									</div>
-									<div class="hr"></div>
-									<div class="foot">
-										<a
-											href="${pageContext.request.contextPath}/hoanghamobile/forgot-password-request">Forgot
-											Password?</a>
-									</div>
-								</div>
+								</form>
 							</div>
 						</div>
 					</div>
 				</div>
-			</form>
+			</div>
 		</div>
 	</div>
-
 </body>
 
 </html>

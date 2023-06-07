@@ -19,6 +19,11 @@ public class HomeController {
 
 	@Autowired
 	UserRepository dao1;
+	
+	@GetMapping("/hoanghamobile/login")
+    public String login(){
+        return "product/login";
+    }
 
 	@RequestMapping("/hoanghamobile/add-product")
 	public String addProduct() {
@@ -29,14 +34,6 @@ public class HomeController {
 	public String editProduct() {
 		return "admin/edit-product";
 	}
-
-	@RequestMapping("/hoanghamobile/account")
-	public String account(Model model) {
-		List<Users> items = dao1.fillAll1();
-		model.addAttribute("items", items);
-		return "admin/account";
-	}
-
 	@RequestMapping("/hoanghamobile/infoproduct")
 	public String infoProduct() {
 		return "product/infoproduct";
