@@ -26,7 +26,7 @@ public class VerificationTokenService implements IVerificationTokenService {
         if ((theToken.get().getExpirationTime().getTime()-calendar.getTime().getTime())<= 0){
             return "EXPIRED";
         }
-        user.setEnabled(true);
+        user.setIsEnabled(true);
         userRepository.save(user);
         return "VALID";
     }

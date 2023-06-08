@@ -24,7 +24,7 @@ public class EndToEndUserDetails implements UserDetails {
     public EndToEndUserDetails(Users user) {
         this.userName = user.getEmail();
         this.password = user.getPassword();
-        this.isEnabled = user.isEnabled();
+        this.isEnabled = user.getIsEnabled();
         this.authorities =
                 Arrays.stream(user.getRoles().toString().split(","))
                         .map(SimpleGrantedAuthority::new)

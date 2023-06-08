@@ -21,12 +21,19 @@ public class HomeController {
 
 	@Autowired
 	UserRepository dao1;
+	@GetMapping("/hoanghamobile/login")
+	public String login(){
+		return "login/login";
+	}
 
 	@RequestMapping("/hoanghamobile/addproduct")
 	public String addProduct( @ModelAttribute("item") Product items) {
-		
 		return "admin/add-product";
 	}
+	@GetMapping("/hoanghamobile/error")
+    public String error(){
+        return "error";
+    }
 
 	@RequestMapping("/hoanghamobile/edit-product")
 	public String editProduct() {

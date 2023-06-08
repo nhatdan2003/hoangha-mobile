@@ -36,31 +36,31 @@ public class RegistrationController {
     private final RegistrationCompleteEventListener eventListener;
 
 
-    @GetMapping("/	")
+    @GetMapping("/registration-form")
     public String showRegistrationForm(Model model) {
         model.addAttribute("user", new RegistrationRequest());
-        return "product/signup";
+        return "login/registration";
     }
     @PostMapping("/register")
     public String registerUser(@ModelAttribute("user") RegistrationRequest registration, HttpServletRequest request) {
         Users user = userService.registerUser(registration);
         publisher.publishEvent(new RegistrationCompleteEvent(user, UrlUtil.getApplicationUrl(request)));
-        return "redirect:/registration/registration-form?success";
+        return "redirect:/hoanghamobile/registration-form?success";
     }
     @GetMapping("/verifyEmail")
     public String verifyEmail(@RequestParam("token") String token) {
         Optional<VerificationToken> theToken = tokenService.findByToken(token);
         if (theToken.isPresent() && theToken.get().getUser().getIsEnabled()) {
-            return "redirect:/login?verified";
+            return "redirect:/hoanghamobile/login?verified";
         }
         String verificationResult = tokenService.validateToken(token);
         switch (verificationResult.toLowerCase()) {
             case "expired":
-                return "redirect:/error?expired";
+                return "redirect:/hoanghamobile/error?expired";
             case "valid":
-                return "redirect:/login?valid";
+                return "redirect:/hoanghamobile/login?valid";
             default:
-                return "redirect:/error?invalid";
+                return "redirect:/hoanghamobile/error?invalid";
         }
     }
 

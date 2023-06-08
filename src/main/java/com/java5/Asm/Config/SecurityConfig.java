@@ -34,7 +34,7 @@ public class SecurityConfig {
 	@SuppressWarnings("removal")
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().authorizeHttpRequests()
-				.requestMatchers("/", "/hoanghamobile/login", "/error", "/hoanghamobile/**").permitAll().anyRequest()
+				.requestMatchers("/", "/hoanghamobile/login", "/hoanghamobile/error", "/hoanghamobile/**").permitAll().anyRequest()
 				.authenticated().and().formLogin().loginPage("/hoanghamobile/login").usernameParameter("email")
 				.defaultSuccessUrl("/hoanghamobile/").permitAll().and().logout().invalidateHttpSession(true)
 				.clearAuthentication(true).logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
