@@ -72,7 +72,7 @@ public class CartController {
         Cookie cookie = new Cookie("myCart", cartValue);
         cookie.setMaxAge(86400);
         resp.addCookie(cookie);
-        return "redirect:/hoanghamobile/cartproduct";
+        return "redirect:/hoanghamobile/product?id="+id;
     }
 
     @RequestMapping("/hoanghamobile/cartproduct/remove/{idProduct}")

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -192,8 +193,8 @@
                                  <div class="iteam-order col-xl-6  pt-2 text-center"
                                     style=" border-radius: 10px; border: 3px #00483d;">
                                     <span class="material-symbols-outlined"
-                                     style="font-size: 42px; color: #00483e; ">shopping_cart<a href="hoanghamobie/cartproduct"
-                                         style="color: orange ;font-size: 20px; font-weight: bold;  ">0</a></span>
+                                     style="font-size: 42px; color: #00483e; ">shopping_cart<a href="/hoanghamobile/cartproduct"
+                                         style="color: orange ;font-size: 20px; font-weight: bold;  ">${cart.getCount()}</a></span>
                                 </div>  
 
 
@@ -376,38 +377,36 @@
 					<tr>
 						<td><img alt="" src="../IMG/${item.image}" class="img-fluid img-thumbnail" style="width: 50px; height: 50px;"></td>
 						<td>${item.nameProduct}</td>
-						<td>${item.price}</td>
+						<td> <fmt:formatNumber value="${item.price}" type="currency" currencySymbol="VND" /></td>
 						<td><input name="qty" value="${item.qty}" onblur="this.form.submit()" style="width: 50px"></td>
-						<td>${item.price * item.qty}</td>
+						<td> <fmt:formatNumber value="${item.price * item.qty} " type="currency" currencySymbol="VND" /></td>
 						<td><a href="/hoanghamobile/cartproduct/remove/${item.idProduct}">Remove</a></td>
 					</tr>
 				</form:form>
             </c:forEach>
-            
+              <tr>
+                <td colspan="4" style="font-size: 15px;
+                font-weight: bold;
+                color: #00483d;">Số Lượng:</td>
+                <td colspan="2" style="font-size: 15px;
+                font-weight: bold;
+                color: #bf1e2d"> ${cart.getCount()}</td>
+            </tr>
             <tr>
                 <td colspan="4" style="font-size: 15px;
                 font-weight: bold;
                 color: #00483d;">Tổng tiền:</td>
                 <td colspan="2" style="font-size: 15px;
                 font-weight: bold;
-                color: #bf1e2d">{{sumMoney | number}} VND</td>
+                color: #bf1e2d">  <fmt:formatNumber value="${cart.getAmount()}"
+												type="currency" currencySymbol="VND" /></td>
             </tr>
         </table>
-        
-        <div class="test row">
-        	<c:forEach var="test" items="${test}">
-        		<form action="/hoanghamobile/cartproduct/add/${test.idProduct}">
-        			<div class="col-3">
-	        			<img alt="" src="../IMG/${test.image}" class="img-fluid">
-	        			<h3>${test.nameProduct}</h3>
-	        			<b>${test.price}</b>
-	        			<button class="btn btn-primary">Thêm</button>
-	        		</div>
-        		</form>
-        	</c:forEach>
-        </div>
+     
 
     </div>
+       
+     
   <div class="container pt-5 ">
                 <div class="bg "
                     style="background-color: #00483d; border-radius: 11px; padding: 10px 20px 10px 20px;color: #fff; ">
