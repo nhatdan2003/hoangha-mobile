@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,28 +40,28 @@
 								</h3>
 							</div>
 						</c:if>
-						<form action="<c:url value='/hoanghamobile/register'/>" 
+						<form action="<c:url value='/hoanghamobile/register'/>"
 							method="post">
 							<c:set var="user" value="${user}" />
 							<div class="form-group">
 								<input type="text" id="firstName" autofocus="autofocus"
 									class="form-control" required name="firstName"
-									value="${user.firstName}" placeholder="Enter First Name">
+									value="<c:out value="${user.firstName}"/>" placeholder="Enter First Name">
 							</div>
 							<div class="form-group">
 								<input type="text" id="firstName" autofocus="autofocus"
 									class="form-control" required name="lastName"
-									value="${user.lastName}" placeholder="Enter Last Name">
+									value="<c:out value="${user.lastName}"/>" placeholder="Enter Last Name">
 							</div>
 							<div class="form-group">
 								<input type="text" id="firstName" autofocus="autofocus"
 									class="form-control" required name="email"
-									value="${user.email}" placeholder="Enter Email">
+									value="<c:out value="${user.email}"/>"placeholder="Enter Email">
 							</div>
 							<div class="form-group">
 								<input type="text" id="firstName" autofocus="autofocus"
 									class="form-control" required name="password"
-									value="${user.password}" placeholder="Enter Password">
+									value="<c:out value="${user.password}"/>" placeholder="Enter Password">
 							</div>
 							<div class="form-group">
 								<input type="text" id="firstName" autofocus="autofocus"
@@ -74,10 +74,7 @@
 							</div>
 							<div class="form-group d-md-flex">
 								<div class="w-50">
-									<label class="checkbox-wrap checkbox-primary">Remember
-										Me <input type="checkbox" checked> <span
-										class="checkmark"></span>
-									</label>
+									
 								</div>
 								<div class="w-50 text-md-right">
 									<a

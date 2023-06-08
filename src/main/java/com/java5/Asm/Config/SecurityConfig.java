@@ -31,19 +31,41 @@ public class SecurityConfig {
 		return authenticationProvider;
 	}
 
-	@SuppressWarnings("removal")
-	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable().authorizeHttpRequests()
-				.requestMatchers("/", "/hoanghamobile/login", "/hoanghamobile/error", "/hoanghamobile/**").permitAll().anyRequest()
-				.authenticated().and().formLogin().loginPage("/hoanghamobile/login").usernameParameter("email")
-				.defaultSuccessUrl("/hoanghamobile/").permitAll().and().logout().invalidateHttpSession(true)
-				.clearAuthentication(true).logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-				.logoutSuccessUrl("/hoanghamobile/").and().httpBasic();
-	}
-
+//	@SuppressWarnings("removal")
+//	protected void configure(HttpSecurity http) throws Exception {
+//		http.csrf().disable().authorizeHttpRequests()
+//				.requestMatchers("/hoanghamobile/login", "/hoanghamobile/error", "/hoanghamobile/**").permitAll().anyRequest()
+//				.authenticated().and().formLogin().loginPage("/hoanghamobile/login").usernameParameter("email")
+//				.defaultSuccessUrl("/hoanghamobile").permitAll().and().logout().invalidateHttpSession(true)
+//				.clearAuthentication(true).logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+//				.logoutSuccessUrl("/hoanghamobile").and().httpBasic();
+//	}
+//
+//    @Bean
+//    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+//		return http.build();
+//	}
     @Bean
-    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		return http.build();
-	}
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http.csrf().disable()
+                .authorizeRequests()
+                    .requestMatchers("/hoanghamobile/login","/hoanghamobile/**", "/hoanghamobile/error").permitAll()
+                    .requestMatchers("/").authenticated()
+                .and()
+                .formLogin()
+                    .loginPage("/hoanghamobile/login")
+                    .usernameParameter("email")
+                    .defaultSuccessUrl("/hoanghamobile/**")
+                    .permitAll()
+                .and()
+                .logout()
+                    .invalidateHttpSession(true)
+                    .clearAuthentication(true)
+                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                    .logoutSuccessUrl("/hoanghamobile")
+                    .permitAll();
+        
+        return http.build();
+    }
 
 }
