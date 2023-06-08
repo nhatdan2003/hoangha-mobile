@@ -159,7 +159,7 @@
 
                         <!-- end menu mobile-->
                         <div class="logo col-8  col-xl-3 pt-0 pt-xl-3 text-center order-2 ">
-                            <img src="IMG/logo-text.png" alt="" class="img-fluid">
+                            <img src="../IMG/logo-text.png" alt="" class="img-fluid">
                         </div>
                         <div class="search-box col-12 col-xl-6 pt-3 order-4 order-xl-3">
                             <form action="/hoanghamobile/findproduct" method="GET">

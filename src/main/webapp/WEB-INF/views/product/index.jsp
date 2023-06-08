@@ -193,8 +193,8 @@
                                  <div class="iteam-order col-xl-6  pt-2 text-center"
                                     style=" border-radius: 10px; border: 3px #00483d;">
                                     <span class="material-symbols-outlined"
-                                     style="font-size: 42px; color: #00483e; ">shopping_cart<a href="hoanghamobile/cartproduct"
-                                         style="color: orange ;font-size: 20px; font-weight: bold;  ">${count}</a></span>
+                                     style="font-size: 42px; color: #00483e; ">shopping_cart<a href="/hoanghamobile/cartproduct"
+                                         style="color: orange ;font-size: 20px; font-weight: bold;  ">${cart.getCount()}</a></span>
                                 </div>  
 
 

@@ -371,7 +371,6 @@
 								trả gó....</a> <strong>VÀ 5 KM KHÁC</strong>
 
 						</div>
-						<a href="cart/add/${product.idProduct}">Giỏi Hàng</a>
 					<!-- 	<button formaction="">Giỏ Hàng</button> -->
 					</div>
 				</c:if>

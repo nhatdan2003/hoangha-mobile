@@ -20,10 +20,14 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.java5.Asm.Entity.Product;
 import com.java5.Asm.Repository.ProductRepository;
+import com.java5.Asm.Service.ShoppingCartService;
 
 @Controller
 public class ProductController {
-
+	
+	@Autowired
+    private ShoppingCartService cart;
+	
 	@Autowired
 	ProductRepository dao;
 
@@ -41,7 +45,8 @@ public class ProductController {
 		List<Product> itemRandom = dao.findRandom5Products();
 		Collections.shuffle(itemRandom);
 		model.addAttribute("itemRandom", itemRandom);
-
+		model.addAttribute("cart", cart);
+       
 		return "product/index";
 	}
 
@@ -98,6 +103,7 @@ public class ProductController {
 		List<Product> itemRandom = dao.findRandom5Products();
 		Collections.shuffle(itemRandom);
 		model.addAttribute("itemRandom", itemRandom);
+		model.addAttribute("cart", cart);
 		return "product/productDetail";
 	}
 	
