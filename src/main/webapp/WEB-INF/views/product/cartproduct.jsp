@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -358,28 +360,30 @@
             </nav>
 
 <!-- DAY LA GIO HANG -->
-    <div class="container" style="background-color: white; border-radius: 10px; box-shadow: 0 4px 6px #00000029;">
-        <table class="giohang table">
+    <div class="container mt-5" style="background-color: white; border-radius: 10px; box-shadow: 0 4px 6px #00000029;">
+        <table class="giohang table table-hover">
             <tr>
+            	<th>Hình ảnh</th>
                 <th>Tên sản phẩm</th>
-                <th>Hình ảnh</th>
                 <th>Giá</th>
                 <th>Số lượng</th>
                 <th>Thành tiền</th>
-                <th> </th>
+                <th></th>
             </tr>
-            <tr ng-repeat="c in cart track by $index" style="font-size: 15px;
-            font-weight: bold;
-            color: #00483d;">
-                <td>{{c.name}}</td>
-                <td><img width="100px" src="{{c.image}}" alt=""></td>
-                <td>{{c.price |number}}</td>
-                <td><span ng-click="subClick($index)">-</span> {{c.quantity}} <span ng-click="addClick($index)">+</span>
-
-                </td>
-                <td>{{c.price*c.quantity}}</td>
-                <td> <span ng-click="delProduct($index)">Xóa</span></td>
-            </tr>
+            
+            <c:forEach var="item" items="${cart.items}">
+            	<form:form action="/hoanghamobile/cartproduct/update/${item.idProduct}" method="post">
+					<tr>
+						<td><img alt="" src="../IMG/${item.image}" class="img-fluid img-thumbnail" style="width: 50px; height: 50px;"></td>
+						<td>${item.nameProduct}</td>
+						<td>${item.price}</td>
+						<td><input name="qty" value="${item.qty}" onblur="this.form.submit()" style="width: 50px"></td>
+						<td>${item.price * item.qty}</td>
+						<td><a href="/hoanghamobile/cartproduct/remove/${item.idProduct}">Remove</a></td>
+					</tr>
+				</form:form>
+            </c:forEach>
+            
             <tr>
                 <td colspan="4" style="font-size: 15px;
                 font-weight: bold;
@@ -389,6 +393,19 @@
                 color: #bf1e2d">{{sumMoney | number}} VND</td>
             </tr>
         </table>
+        
+        <div class="test row">
+        	<c:forEach var="test" items="${test}">
+        		<form action="/hoanghamobile/cartproduct/add/${test.idProduct}">
+        			<div class="col-3">
+	        			<img alt="" src="../IMG/${test.image}" class="img-fluid">
+	        			<h3>${test.nameProduct}</h3>
+	        			<b>${test.price}</b>
+	        			<button class="btn btn-primary">Thêm</button>
+	        		</div>
+        		</form>
+        	</c:forEach>
+        </div>
 
     </div>
   <div class="container pt-5 ">
