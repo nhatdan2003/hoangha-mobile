@@ -64,7 +64,7 @@ public class CartController {
 
     @RequestMapping("/hoanghamobile/cartproduct/add/{idProduct}")
     public String add(@PathVariable("idProduct") Long id) throws JsonProcessingException {
-        cart.add((long) 1);
+        cart.add(id);
         Map<Long, Product> itemsMap = cart.getItems().stream()
                 .collect(Collectors.toMap(Product::getIdProduct, Function.identity()));
 
