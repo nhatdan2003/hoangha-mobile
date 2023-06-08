@@ -82,7 +82,7 @@
 														</strong></td>
 													<td>${item.type}</td>
 													<td>${item.date}</td>
-													<td><a href="#" class="tm-product-delete-link"> <i
+													<td><a href="<c:url value='/hoanghamobile/deleteproduct/?id=${item.idProduct}'/>" class="tm-product-delete-link"> <i
 																class="far fa-trash-alt tm-product-delete-icon"></i>
 														</a></td>
 												</tr>
@@ -92,9 +92,9 @@
 									</table>
 								</div>
 								<!-- table container -->
-								<a href="add-product" class="btn btn-primary btn-block text-uppercase mb-3">Add
+								<a href="/hoanghamobile/addproduct" class="btn btn-primary btn-block text-uppercase mb-3">Add
 									new product</a>
-								<button class="btn btn-primary btn-block text-uppercase">
+								<button formaction="/hoanghamobile/deleteproduct" class="btn btn-primary btn-block text-uppercase">
 									Delete selected products</button>
 							</div>
 						</div>
