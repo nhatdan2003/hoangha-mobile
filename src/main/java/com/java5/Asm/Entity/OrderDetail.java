@@ -8,7 +8,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,16 +18,19 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "order_table")
-public class Order {
+public class OrderDetail {
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
-	 private Long idOrder;
-	 private double Total;
-	 private Date date;
-	 private Boolean status;
-	 private String note;
+	 private Long idOrderDetail;
 	 @ManyToOne
-	 @JoinColumn(name = "idClient")
-	 private Cilent iCilent;
+	 @JoinColumn(name = "idOrder")
+	 private Order iOrder;
+	 @ManyToOne
+	 @JoinColumn(name = "idProduct")
+	 private Product idProduct;
+	 private int SoLuong;
+	 private double TongGia;
+	 
+	 
+	 
 }

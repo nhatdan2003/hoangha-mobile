@@ -402,12 +402,35 @@
                 font-weight: bold;
                 color: #bf1e2d">  <fmt:formatNumber value="${cart.getAmount()}"
 												type="currency" currencySymbol="VND" /></td>
+						
             </tr>
         </table>
      
 
     </div>
-       
+       <div class="container">
+        <h2>Client Form</h2>
+        <form:form action="/hoanghamobile/cartproduct/dathang" modelAttribute="cilent">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <form:input type="text" path="fullName" class="form-control" id="fullName" placeholder="Enter full name"/>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <form:input type="email" path="email" class="form-control" id="email" placeholder="Enter email"/>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <form:input type="text" path="address" class="form-control" id="address" placeholder="Enter address"/>
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <form:input type="text" path="phone_number" class="form-control" id="phoneNumber" placeholder="Enter phone number"/>
+                
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form:form>
+    </div>
      
   <div class="container pt-5 ">
                 <div class="bg "
@@ -530,33 +553,6 @@
 
 
         </div>
-
-    <!-- <table class="table">
-            <tr>
-                <th>Tên sản phẩm</th>
-                <th>Hình ảnh</th>
-                <th>Giá</th>
-                <th>Số lượng</th>
-                <th>Thành tiền</th>
-                <th> </th>
-            </tr>
-            <tr ng-repeat="c in cart track by $index">
-                <td>{{c.name}}</td>
-                <td><img width="100px" src="{{c.Image}}" alt=""></td>
-                <td>{{c.price}}</td>
-                <td><span ng-click="subClick($index)">-</span> {{c.quantity}} <span ng-click="addClick($index)">+</span></td>
-                <td>{{c.price*c.quantity}}</td>
-                <td> <span ng-click="delProduct($index)">Xóa</span></td>
-            </tr>
-            <tr>
-                <td colspan="4">Tổng tiền:</td>
-                <td colspan="2">{{sumMoney}}</td>
-            </tr> -->
-    <!-- </table> -->
-    <!-- <div class="container text-center" ng-show="c==null">
-        <img src="https://hoanghamobile.com/Content/web/content-icon/no-item.png" alt="">
-        <h1>Hiện Tại Chưa Có Sản Phẩm Nào</h1>
-    </div> -->
 
 
 	<script src="../JSON/product.js"></script>

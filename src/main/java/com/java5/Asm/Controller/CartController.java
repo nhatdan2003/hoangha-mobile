@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,17 +20,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.java5.Asm.Entity.Cilent;
 import com.java5.Asm.Entity.Product;
+import com.java5.Asm.Repository.ClientReprository;
 import com.java5.Asm.Repository.ProductRepository;
 import com.java5.Asm.Service.ShoppingCartService;
 
+import ch.qos.logback.core.net.server.Client;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
 public class CartController {
-
+	
+	@Autowired
+	private ClientReprository client;
+	
 	@Autowired
 	private ShoppingCartService cart;
 
@@ -148,5 +155,15 @@ public class CartController {
 		}
 		return null;
 	}
+	
+	@RequestMapping("/hoanghamobile/cartproduct/dathang")
+	public String dathang(Model model , @ModelAttribute("cilent") Cilent cilent)  {
+		
+		client.save(cilent);
+		return "redirect:/hoanghamobile";
+	}
+	
+	
+	
 
 }
