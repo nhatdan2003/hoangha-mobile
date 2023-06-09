@@ -18,17 +18,17 @@ import com.java5.Asm.Repository.UserRepository;
 public class HomeController {
 	@Autowired
 	ProductRepository dao;
-
+	
 	@Autowired
 	UserRepository dao1;
 	@GetMapping("/hoanghamobile/login")
 	public String login(){
-		
 		return "login/login";
 	}
 
 	@RequestMapping("/hoanghamobile/addproduct")
 	public String addProduct( @ModelAttribute("item") Product items) {
+		
 		return "admin/add-product";
 	}
 	@GetMapping("/hoanghamobile/error")
