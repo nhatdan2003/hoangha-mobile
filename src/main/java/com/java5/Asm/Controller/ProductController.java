@@ -63,7 +63,7 @@ public class ProductController {
 	}
 
 	@GetMapping("/hoanghamobile/findproduct")
-	public String FindProduct(Model model, @RequestParam("keyword") String keyword,
+	public String FindProduct(Model model, @RequestParam(value = "keyword", required = false) String keyword,
 			@RequestParam("p") Optional<Integer> p) {
 
 		Pageable pageble = PageRequest.of(p.orElse(0), 15);
