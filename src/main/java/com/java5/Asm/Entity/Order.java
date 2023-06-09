@@ -22,8 +22,7 @@ import lombok.Setter;
 @Table(name = "order_table")
 public class Order {
 	 @Id
-	 @GeneratedValue(strategy = GenerationType.IDENTITY)
-	 private Long idOrder;
+	 private String idOrder;
 	 private double Total;
 	 private Date date;
 	 private Boolean status;
