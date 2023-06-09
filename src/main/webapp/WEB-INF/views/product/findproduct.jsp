@@ -310,20 +310,21 @@
 
 				</c:forEach>
 			</div>
-			<div class="contrainer text-center">
-				<ul class="pagination pt-4" style="margin-left: 450px;font-size: 15px">
+			<div class="container text-center">
+				<ul class="pagination pt-4"
+					style="margin-left: 450px; font-size: 15px">
 					<li class="page-item"><a
 						class="page-link bg-custom text-white"
-						href="/hoanghamobile/findproduct?p=0">First</a></li>
+						href="/hoanghamobile/findproduct?p=0&keyword=${keyword}">First</a></li>
 					<li class="page-item"><a
 						class="page-link bg-custom text-white"
-						href="/hoanghamobile/findproduct?p=${page.number-1}">Previous</a></li>
+						href="/hoanghamobile/findproduct?p=${page.number - 1}&keyword=${keyword}">Previous</a></li>
 					<li class="page-item"><a
 						class="page-link bg-custom text-white"
-						href="/hoanghamobile/findproduct?p=${page.number+1}">Next</a></li>
+						href="/hoanghamobile/findproduct?p=${page.number + 1}&keyword=${keyword}">Next</a></li>
 					<li class="page-item"><a
 						class="page-link bg-custom text-white"
-						href="/hoanghamobile/findproduct?p=${page.totalPages-1}">Last</a></li>
+						href="/hoanghamobile/findproduct?p=${page.totalPages - 1}&keyword=${keyword}">Last</a></li>
 				</ul>
 			</div>
 		</div>
