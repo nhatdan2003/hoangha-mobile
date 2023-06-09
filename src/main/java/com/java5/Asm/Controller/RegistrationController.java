@@ -43,6 +43,7 @@ public class RegistrationController {
     }
     @PostMapping("/register")
     public String registerUser(@ModelAttribute("user") RegistrationRequest registration, HttpServletRequest request) {
+    	System.out.println(registration.getLastName());
         Users user = userService.registerUser(registration);
         publisher.publishEvent(new RegistrationCompleteEvent(user, UrlUtil.getApplicationUrl(request)));
         return "redirect:/hoanghamobile/registration-form?success";

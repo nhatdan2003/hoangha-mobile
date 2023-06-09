@@ -13,7 +13,7 @@ import com.java5.Asm.Entity.Product;
 import jakarta.transaction.Transactional;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
-	@Query("SELECT p FROM Product p WHERE p.type='Apple'")
+	@Query("SELECT p FROM Product p WHERE p.type='Apple' ORDER BY p.idProduct DESC")
 	List<Product> fillProductApple();
 
 	@Query("SELECT p FROM Product p WHERE p.type IN ('Samsung', 'Oppo', 'Xiaomi') ORDER BY RAND()")
@@ -35,9 +35,9 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
 	@Transactional
 	@Modifying
-	@Query("UPDATE Product p SET p.nameProduct=?1 ,p.price=?3,p.note=?4,p.sale=?5 ,p.image=?6 WHERE p.idProduct=?2")
+	@Query("UPDATE Product p SET p.nameProduct=?1 ,p.price=?3,p.note=?4,p.sale=?5 ,p.image=?6 , p.type=?7 WHERE p.idProduct=?2")
 
-	void updatenameProduct(String Name,Long id,Double price,String note,Double sale,String image);
+	void updatenameProduct(String Name,Long id,Double price,String note,Double sale,String image,String type);
 	
 	@Transactional
 	@Modifying

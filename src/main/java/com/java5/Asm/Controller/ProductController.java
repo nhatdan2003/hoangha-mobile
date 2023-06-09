@@ -1,5 +1,6 @@
 package com.java5.Asm.Controller;
 
+import java.io.File;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.Date;
@@ -20,10 +21,14 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.java5.Asm.Entity.Product;
 import com.java5.Asm.Repository.ProductRepository;
+import com.java5.Asm.Service.ParamService;
 import com.java5.Asm.Service.ShoppingCartService;
 
 @Controller
 public class ProductController {
+	
+	@Autowired
+	ParamService ps;
 	
 	@Autowired
     private ShoppingCartService cart;
@@ -82,12 +87,11 @@ public class ProductController {
 	}
 
 	@RequestMapping("/hoanghamobile/updateproduct")
-	public String updateProduct(@ModelAttribute("items") Product items) {
-		
-		System.out.println(items.getIdProduct());
-		System.out.println(items.getNameProduct());
+	public String updateProduct(@ModelAttribute("items") Product items , @RequestParam("fileInput") MultipartFile mtp) {
+		File saveFile = ps.save(mtp, "IMG");
+		items.setImage(saveFile.getName());
 		dao.updatenameProduct(items.getNameProduct(), items.getIdProduct(), items.getPrice(), items.getNote(),
-				items.getSale(), items.getImage());
+				items.getSale(), items.getImage(),items.getType());
 		return "admin/edit-product";
 	}
 	@RequestMapping("/hoanghamobile/deleteproduct/")

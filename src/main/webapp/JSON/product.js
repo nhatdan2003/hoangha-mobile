@@ -317,6 +317,8 @@ app.controller("myCtrl", function($scope, $routeParams, $interval, $rootScope) {
     };
     $scope.hideProducts = function() {
         $scope.hienthi = false;
+        var element = document.querySelector('.hihipro');
+    element.scrollIntoView({ behavior: 'smooth' });
     };
     $scope.sort = 'name';
     // $scope.tangia = function() {

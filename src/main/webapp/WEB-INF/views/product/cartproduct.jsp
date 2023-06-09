@@ -374,7 +374,9 @@
             
             <c:forEach var="item" items="${cart.items}">
             	<form:form action="/hoanghamobile/cartproduct/update/${item.idProduct}" method="post">
-					<tr>
+					<tr style="font-size: 15px;
+            font-weight: bold;
+            color: #00483d;">
 						<td><img alt="" src="../IMG/${item.image}" class="img-fluid img-thumbnail" style="width: 50px; height: 50px;"></td>
 						<td>${item.nameProduct}</td>
 						<td> <fmt:formatNumber value="${item.price}" type="currency" currencySymbol="VND" /></td>

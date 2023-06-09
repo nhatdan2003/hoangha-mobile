@@ -98,7 +98,7 @@
 					<div class="row tm-edit-product-row">
 						<div class="col-xl-6 col-lg-6 col-md-12">
 						<form:form action="/hoanghamobile/updateproduct"
-								clas="tm-edit-product-form"  modelAttribute="items">
+								clas="tm-edit-product-form"  modelAttribute="items" enctype="multipart/form-data">
 								<div class="form-group mb-3">
 									<label for="name">Max Sản Phẩm </label>
 									 <form:input id="id"
@@ -131,13 +131,14 @@
 										class="form-control validate" />
 								</div>
 								<div class="form-group mb-3">
-									<label for="category">Category</label> <select
+									<label for="category">Category</label>
+									<form:select path="type"
 										class="custom-select tm-select-accounts" id="category">
-										<option>Danh sách Sản Phẩm</option>
-										<option value="${items.type}" selected>Máy Tính</option>
-										<option value="${items.type}">Apple</option>
-										<option value="${items.type}">Samsung</option>
-									</select>
+										<form:option value="0">Danh sách Sản Phẩm</form:option>
+										<form:option value="Máy Tính" selected="selected">Máy Tính</form:option>
+										<form:option value="Apple">Apple</form:option>
+										<form:option value="Samsung">Samsung</form:option>
+									</form:select>
 								</div>
 								<%-- <div class="form-group mb-3">
 									<label for="name">Ngày Cập Nhập </label>
@@ -154,13 +155,13 @@
 						</div>
 						<div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
 							<div class="tm-product-img-edit mx-auto">
-								<img src="../IMG/${items.image}" alt="Product image"
+								<img src="../IMG/${items.image}" id="previewImage" alt="Product image" name="fileInput"
 									class="img-fluid d-block mx-auto"> <i
 									class="fas fa-cloud-upload-alt tm-upload-icon"
 									onclick="document.getElementById('fileInput').click();"></i>
-							</div>
+							</div>	
 							<div class="custom-file mt-3 mb-3">
-								<input id="fileInput" type="file" style="display: none;" /> <input
+								<input id="fileInput" name="fileInput" type="file" onchange="displayImage(this)" value="/IMG/${items.image}" style="display: none;" /> <input
 									type="button" class="btn btn-primary btn-block mx-auto"
 									value="CHANGE IMAGE NOW" formaction="/hoanghamobile/updateproduct"
 									onclick="document.getElementById('fileInput').click();" />
@@ -196,6 +197,20 @@
 				defaultDate : "10/22/2020"
 			});
 		});
+	</script>
+	<script>
+		function displayImage(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function(e) {
+					document.getElementById('previewImage').src = e.target.result;
+					document.getElementById('previewImage').style.display = 'block';
+				};
+
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
 	</script>
 </body>
 </html>
