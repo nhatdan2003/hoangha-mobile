@@ -139,7 +139,7 @@ form .Diachi {
     background-color: rgba(129, 128, 128, 0.1);
 }
 
-.button {
+.button.type1 {
     position: relative;
     padding: 1em 1.5em;
     border: none;
