@@ -23,6 +23,7 @@ public class HomeController {
 	UserRepository dao1;
 	@GetMapping("/hoanghamobile/login")
 	public String login(){
+		
 		return "login/login";
 	}
 
