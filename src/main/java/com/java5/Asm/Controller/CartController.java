@@ -2,6 +2,8 @@ package com.java5.Asm.Controller;
 
 import java.nio.charset.StandardCharsets;
 import org.apache.commons.codec.binary.Base64;
+
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +11,8 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
@@ -21,18 +25,26 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.java5.Asm.Entity.Cilent;
+import com.java5.Asm.Entity.Order;
 import com.java5.Asm.Entity.Product;
 import com.java5.Asm.Repository.ClientReprository;
+import com.java5.Asm.Repository.OrderDetailsRepository;
+import com.java5.Asm.Repository.OrderRepository;
 import com.java5.Asm.Repository.ProductRepository;
 import com.java5.Asm.Service.ShoppingCartService;
 
-import ch.qos.logback.core.net.server.Client;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
 public class CartController {
+	
+	@Autowired
+	private OrderRepository order;
+	
+	@Autowired 
+	private OrderDetailsRepository orderDetails;
 	
 	@Autowired
 	private ClientReprository client;
@@ -73,7 +85,7 @@ public class CartController {
 		model.addAttribute("total", cart.getAmount());
 		List<Product> list = daop.findAll();
 		model.addAttribute("test", list);
-
+		model.addAttribute("cilent", new Cilent());
 		return "product/cartproduct";
 	}
 
@@ -146,7 +158,7 @@ public class CartController {
 		
 		return "redirect:/hoanghamobile/cartproduct";
 	}
-
+	
 	private String sanitizeCartValue(String cartValue) {
 		if (cartValue != null) {
 			// Mã hóa chuỗi JSON thành chuỗi Base64
@@ -157,11 +169,22 @@ public class CartController {
 	}
 	
 	@RequestMapping("/hoanghamobile/cartproduct/dathang")
-	public String dathang(Model model , @ModelAttribute("cilent") Cilent cilent)  {
-		
+	public String dathang(Model model , Cilent cilent)  {
 		client.save(cilent);
+		Pageable pl = PageRequest.of(0, 1);
+		List<Cilent> clients = client.findName(cilent.getFullName(),pl );
+		if (!clients.isEmpty()) {
+		    cilent  = clients.get(0);
+		    order.insertOrder(cart.getAmount(), new Date(), false, null, cilent.getIdCilent());
+		    // Xử lý kết quả top 1 ở đây
+		} else {
+		    // Không tìm thấy kết quả
+		}
+		
+		
 		return "redirect:/hoanghamobile";
 	}
+	
 	
 	
 	
