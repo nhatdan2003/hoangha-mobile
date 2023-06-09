@@ -64,8 +64,8 @@
 									value="<c:out value="${user.password}"/>" placeholder="Enter Password">
 							</div>
 							<div class="form-group">
-								<input type="text" id="firstName" autofocus="autofocus"
-									class="form-control" required name="firstName"
+								<input type="text" id="prePass" autofocus="autofocus"
+									class="form-control" required name="prePass"
 									placeholder="Enter Pre Pass">
 							</div>
 							<div class="form-group">
