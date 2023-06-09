@@ -1,0 +1,199 @@
+/* *{
+    margin: 0;
+    padding: 0;
+}  */
+main {
+    background-color: rgba(211, 209, 209, 0.1);
+}
+
+.card_infoProduct {
+    margin-top: 30px !important;
+    max-height: 560px;
+    overflow-y: scroll;
+    border-radius: 10px !important;
+}
+
+.card {
+    height: 165px !important;
+}
+
+img.img_card {
+    width: 100px;
+    margin: 20px 0px 0px 15px;
+}
+
+.inp_quantity {
+    width: 10%;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    background-color: white;
+}
+
+.btn_Sub,
+.btn_Add {
+    background-color: white;
+    /* opacity: 100%; */
+}
+
+.btn_Delete {
+    background-color: white;
+}
+
+.btn_Delete:hover {
+    color: red;
+}
+
+.control .btn_Sub .icon_Sub:hover,
+.control .btn_Add .icon_Add:hover {
+    /* margin-right: 5px; */
+    /* border: 1px  solid orange; */
+    color: red;
+}
+
+/*tùy chình scroll*/
+* {
+    scrollbar-width: thin;
+    scrollbar-color: black;
+}
+
+/* Tùy chỉnh thanh cuộn trên Chrome, Edge, và Safari */
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: white;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgb(90, 89, 89);
+    border-radius: 20px;
+    border: 3px solid white;
+}
+
+
+.cart-form {
+    margin-top: 70px;
+    text-align: center;
+    flex-grow: 1;
+    width: 40%;
+}
+
+.cart-form h3 {
+    font-size: 20px;
+    margin: 0 0 25px;
+}
+
+.cart-form input,
+.cart-form textarea,
+.cart-form select {
+    outline: none;
+    width: 100%;
+    background: none;
+    border: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI';
+    font-size: 13px;
+    color: #444;
+    padding: 10px 0;
+}
+
+.text-gray {
+    color: #aaa;
+}
+
+.cart-form .row {
+    margin-bottom: 15px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    justify-items: stretch;
+}
+
+form .fullname,
+form .phone,
+form .email,
+form .Diachi {
+    font-size: 15px;
+    height: 40px;
+    margin-bottom: 10px !important;
+    border-radius: 20px;
+    background-color: rgba(129, 128, 128, 0.1);
+    border: none;
+}
+
+
+.checked_form {
+    height: 50px;
+    border: 1px solid rgb(22, 85, 53);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* .checked_form:hover{
+    border: 2px solid rgb(22, 85, 53);
+   
+} */
+.form-floating textarea {
+    height: 90px !important;
+    background-color: rgba(129, 128, 128, 0.1);
+}
+
+.button {
+    position: relative;
+    padding: 1em 1.5em;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    font-size: 18px;
+    margin: 1em 0.8em;
+}
+
+
+.type1 {
+    color: rgb(22, 85, 53);
+}
+
+
+.type1::after,
+.type1::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    border: 2px solid;
+    transition: all 0.6s ease;
+    border-radius: 2px;
+}
+
+
+.type1::after {
+    bottom: 0;
+    right: 0;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color:rgb(22, 85, 53);
+    border-right-color: rgb(22, 85, 53);
+}
+
+
+.type1::before {
+    top: 0;
+    left: 0;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    border-top-color: rgb(22, 85, 53);
+    border-left-color: rgb(22, 85, 53);
+}
+
+
+.type1:hover:after,
+.type1:hover:before {
+    width: 100%;
+    height: 100%;
+}
+
+
+/*test*/
