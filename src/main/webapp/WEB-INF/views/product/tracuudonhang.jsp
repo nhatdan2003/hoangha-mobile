@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,8 +22,10 @@
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css" />
+<script
+	src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css" />
 </head>
 <body>
 	<header class="pt-3 pt-xl-0" style="background-color: #f4f4f4">
@@ -269,141 +275,219 @@
 		<div class="container pt-4">
 			<div class="box-product-youlike ">
 				<h4>
-					<a href=" ">Xác Nhận Đơn Hàng</a>
+					<a href=" ">Tra Cứu Đơn Hàng</a>
 				</h4>
 			</div>
-			<div id="countdownMessage" style="font-size: 15px ;margin-top: 10px;margin-left: 350px"></div>
-			<div class="row text-center" >
-				<p class="" style="font-size: 30px ;margin-top: 10px;margin-left: 300px">Xác Nhận Đơn Hàng Thành Công</p>
-				<p style="font-size: 20px ;margin-top: 10px;margin-left: 350px"> Cảm Ơn Bạn Đã Đặt Hàng Bên Chúng tôi<p>
+			<div id="countdownMessage"
+				style="font-size: 15px; margin-top: 10px; margin-left: 350px"></div>
+			<div class="row text-center">
+				<div class="">
+					<p class=""
+						style="font-size: 30px; margin-top: 10px; margin-left: 450px">Kiểm
+						Tra Đơn Hàng</p>
+				</div>
+
 			</div>
-			
-		</div>
-		<div class="container pt-5 ">
-			<div class="bg "
-				style="background-color: #00483d; border-radius: 11px; padding: 10px 20px 10px 20px; color: #fff;">
-				<div class="col-content ">
-					<div class="link-content ">
-						<h4>
-							e <a href=" ">Hỗ Trợ - Dịch Vụ</a>
-						</h4>
-						<ul>
-							<li><a href=" ">Mua hàng trả góp</a></li>
-							<li><a href=" ">Hướng dẫn đặt hàng và thanh toán</a></li>
-							<li><a href=" ">Tra cứu đơn hàng</a></li>
-							<li><a href=" ">Chính sách bảo hành</a></li>
-							<li><a href=" ">Phạm vi, điều khoản gói bảo hành mở rộng</a>
-							</li>
-							<li><a href=" ">Chính sách bảo mật</a></li>
-							<li><a href=" ">Chính sách giải quyết khiếu nại</a></li>
-							<li><a href=" ">Điều khoản mua bán hàng hóa</a></li>
-							<li><a href=" ">Câu hỏi thường gặp</a></li>
-						</ul>
+			<div ng-app="YourApp" ng-controller="YourController">
+				<form action="/hoanghamobile/tracuumadonhang">
+				<div class="ipputdonhang">
+					<input type="text" placeholder="Vui lòng nhập mã đơn hàng *" name="MaHD"
+						ng-model="orderCode"
+						style="background: #e5e5e5 0% 0% no-repeat padding-box; border-radius: 13px; border: none; width: 30%; height: 30px; padding: 10px 20px; font-weight: bold; margin-left: 370px" />
+
+					<button
+						style="height: 48px; padding: 0 50px; border: none; background: transparent linear-gradient(179deg, #009981 0%, #00483d 100%) 0% 0% no-repeat padding-box; border-radius: 8px; color: #fff; font-weight: bold;"
+						ng-click="checkOrder()">Kiểm Tra</button>
+				</div>
+				</form>
+				
+
+				<div class="hienthi" ng-show="showResult" ng-class="{'active': hienthi === 'active'}">
+				<div class="row text-center">
+				<div class="">
+					<p class=""
+						style="font-size: 30px; margin-top: 10px; margin-left: 350px">Trạng Thái Đơn Hàng : ${status} </p>
+				</div>
+					<div class="container">
+						<h2>Client Form</h2>
+						<form>
+							<div class="form-group">
+								<label for="fullName">Full Name</label> <input
+									Class="form-control" id="fullName" value="${cl.fullName}"
+									placeholder="Enter full name" />
+							</div>
+							<div class="form-group">
+								<label for="email">Email</label> <input type="email"
+									class="form-control" id="email" placeholder="Enter email" value="${cl.email}" /> 
+							</div>
+							<div class="form-group">
+								<label for="address">Address</label> <input type="text"
+									class="form-control" id="address" placeholder="Enter address"  value="${cl.address}"/>
+							</div>
+							<div class="form-group">
+								<label for="phoneNumber">Phone Number</label> <input type="text"
+									class="form-control" id="phoneNumber"
+									placeholder="Enter phone number" value="${cl.phone_number}"/> 
+
+							</div>
+						</form>
 					</div>
-					<div class="link-content ">
-						<h4>Thông Tin Liên Hệ</h4>
-						<ul>
-							<li><a href=" "> Bán hàng Online </a></li>
-							<li><a href=" ">Chăm sóc Khách Hàng</a></li>
-							<li><a href=" ">Hỗ Trợ Kỹ thuật</a></li>
-							<li><a href=" ">Hỗ trợ Bảo hành & Sửa chữa</a></li>
-							<li><a href=" ">Liên hệ khối văn phòng</a></li>
-						</ul>
+					
+					<div class="container mt-5"
+						style="background-color: white; border-radius: 10px; box-shadow: 0 4px 6px #00000029;">
+						<table class="giohang table table-hover">
+							<tr>
+							 <th>Order ID</th>
+            <th>Product Name</th>
+            <th>Product Image</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+							<!-- 	<th>Hình ảnh</th>
+								<th>Tên sản phẩm</th>
+								<th>Giá</th>
+								<th>Số lượng</th>
+								<th>Thành tiền</th>
+								<th></th> -->
+							</tr>
+
+							<c:forEach items="${orderDetails}" var="result">
+									<tr>
+				                <td>${result[0]}</td>
+				               
+				                <td>${result[2]}</td>
+				                <td><img alt="" src="../IMG/${result[3]}" width="100px"></td>
+				                <td>${result[4]}</td>
+				                <td>${result[5]}</td>
+				            </tr>
+				</c:forEach>
+				<tr>
+					<td colspan="1"
+						style="font-size: 15px; font-weight: bold; color: #00483d;">Số
+						Lượng: </td>
+					<td colspan="10"
+						style="font-size: 15px; font-weight: bold; color: #bf1e2d">
+						${qty}</td>
+				</tr>
+				<tr>
+					<td colspan="4"
+						style="font-size: 15px; font-weight: bold; color: #00483d;">Tổng
+						tiền:</td>
+					<td colspan="2"
+						style="font-size: 15px; font-weight: bold; color: #bf1e2d"><fmt:formatNumber
+							value="${total}" type="currency" currencySymbol="VND" /></td>
+
+				</tr>
+			</table>
+
+
 					</div>
-					<div class="link-content ">
-						<h4>Hệ thống 124 siêu thị trên toàn quốc</h4>
-						<ul>
-							<li><a href=" ">Danh sách 124 siêu thị trên toàn quốc</a></li>
-						</ul>
-					</div>
-					<div class="link-content ">
-						<h4>Tổng Đài</h4>
-						<a href=" " class="hotline bg-white "
-							style="color: #00483d; font: Bold 18px/18px -apple-system, BlinkMacSystemFont, 'Segoe UI';">1900.2091</a>
-					</div>
-					<div class="link-content ">
-						<h4>Thanh Toán Miễn Phí</h4>
-						<ul>
-							<li><img src="../IMG/logo-visa.png " alt=" "
-								class="img-fluid "> <img src="../IMG/logo-master.png "
-								alt=" " class="img-fluid "></li>
-							<li><img src="../IMG/logo-jcb.png " alt=" "
-								class="img-fluid "> <img src="../IMG/logo-samsungpay.png "
-								alt=" " class="img-fluid "></li>
-							<li><img src="../IMG/logo-atm.png " alt=" "
-								class="img-fluid "> <img src="../IMG/logo-vnpay.png "
-								alt=" " class="img-fluid "></li>
-						</ul>
-					</div>
-					<div class="link-content ">
-						<h4>Hình Thức Vận Chuyển</h4>
-						<ul>
-							<li><img src="../IMG/nhattin.jpg " alt=" "
-								class="img-fluid "> <img src="../IMG/vnpost.jpg " alt=" "
-								class="img-fluid "></li>
-						</ul>
-						<div>
-							<img src="../IMG/logo-bct.png " alt=" " class="img-fluid ">
+				</div>
+
+
+			</div>
+			<div class="container pt-5 ">
+				<div class="bg "
+					style="background-color: #00483d; border-radius: 11px; padding: 10px 20px 10px 20px; color: #fff;">
+					<div class="col-content ">
+						<div class="link-content ">
+							<h4>
+								e <a href=" ">Hỗ Trợ - Dịch Vụ</a>
+							</h4>
+							<ul>
+								<li><a href=" ">Mua hàng trả góp</a></li>
+								<li><a href=" ">Hướng dẫn đặt hàng và thanh toán</a></li>
+								<li><a href=" ">Tra cứu đơn hàng</a></li>
+								<li><a href=" ">Chính sách bảo hành</a></li>
+								<li><a href=" ">Phạm vi, điều khoản gói bảo hành mở
+										rộng</a></li>
+								<li><a href=" ">Chính sách bảo mật</a></li>
+								<li><a href=" ">Chính sách giải quyết khiếu nại</a></li>
+								<li><a href=" ">Điều khoản mua bán hàng hóa</a></li>
+								<li><a href=" ">Câu hỏi thường gặp</a></li>
+							</ul>
 						</div>
+						<div class="link-content ">
+							<h4>Thông Tin Liên Hệ</h4>
+							<ul>
+								<li><a href=" "> Bán hàng Online </a></li>
+								<li><a href=" ">Chăm sóc Khách Hàng</a></li>
+								<li><a href=" ">Hỗ Trợ Kỹ thuật</a></li>
+								<li><a href=" ">Hỗ trợ Bảo hành & Sửa chữa</a></li>
+								<li><a href=" ">Liên hệ khối văn phòng</a></li>
+							</ul>
+						</div>
+						<div class="link-content ">
+							<h4>Hệ thống 124 siêu thị trên toàn quốc</h4>
+							<ul>
+								<li><a href=" ">Danh sách 124 siêu thị trên toàn quốc</a></li>
+							</ul>
+						</div>
+						<div class="link-content ">
+							<h4>Tổng Đài</h4>
+							<a href=" " class="hotline bg-white "
+								style="color: #00483d; font: Bold 18px/18px -apple-system, BlinkMacSystemFont, 'Segoe UI';">1900.2091</a>
+						</div>
+						<div class="link-content ">
+							<h4>Thanh Toán Miễn Phí</h4>
+							<ul>
+								<li><img src="../IMG/logo-visa.png " alt=" "
+									class="img-fluid "> <img src="../IMG/logo-master.png "
+									alt=" " class="img-fluid "></li>
+								<li><img src="../IMG/logo-jcb.png " alt=" "
+									class="img-fluid "> <img
+									src="../IMG/logo-samsungpay.png " alt=" " class="img-fluid "></li>
+								<li><img src="../IMG/logo-atm.png " alt=" "
+									class="img-fluid "> <img src="../IMG/logo-vnpay.png "
+									alt=" " class="img-fluid "></li>
+							</ul>
+						</div>
+						<div class="link-content ">
+							<h4>Hình Thức Vận Chuyển</h4>
+							<ul>
+								<li><img src="../IMG/nhattin.jpg " alt=" "
+									class="img-fluid "> <img src="../IMG/vnpost.jpg " alt=" "
+									class="img-fluid "></li>
+							</ul>
+							<div>
+								<img src="../IMG/logo-bct.png " alt=" " class="img-fluid ">
+							</div>
+						</div>
+
+
 					</div>
-
-
-				</div>
-				<div class="info ">
-					<p>© 2020. CÔNG TY CỔ PHẦN XÂY DỰNG VÀ ĐẦU TƯ THƯƠNG MẠI HOÀNG
-						HÀ. MST: 0106713191. (Đăng ký lần đầu: Ngày 15 tháng 12 năm 2014,
-						Đăng ký thay đổi ngày 24/11/2022)</p>
-					<p>
-						<strong>GP số 426/GP-TTĐT do sở TTTT Hà Nội cấp ngày
-							22/01/2021</strong>
-					</p>
-					<p>
-						Địa chỉ: 89 Tam Trinh, P. Mai Động, Q. Hoàng Mai, Thành phố Hà
-						Nội. Điện thoại: 1900.2091. Chịu trách nhiệm nội dung: <strong>Trần
-							Quang Khánh</strong>
-					</p>
+					<div class="info ">
+						<p>© 2020. CÔNG TY CỔ PHẦN XÂY DỰNG VÀ ĐẦU TƯ THƯƠNG MẠI HOÀNG
+							HÀ. MST: 0106713191. (Đăng ký lần đầu: Ngày 15 tháng 12 năm 2014,
+							Đăng ký thay đổi ngày 24/11/2022)</p>
+						<p>
+							<strong>GP số 426/GP-TTĐT do sở TTTT Hà Nội cấp ngày
+								22/01/2021</strong>
+						</p>
+						<p>
+							Địa chỉ: 89 Tam Trinh, P. Mai Động, Q. Hoàng Mai, Thành phố Hà
+							Nội. Điện thoại: 1900.2091. Chịu trách nhiệm nội dung: <strong>Trần
+								Quang Khánh</strong>
+						</p>
+					</div>
 				</div>
 			</div>
+
+
+
 		</div>
 
+		<script src=" https://code.jquery.com/jquery-3.2.1.slim.min.js "
+			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN "
+			crossorigin="anonymous "></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js "
+			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q "
+			crossorigin="anonymous "></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js "
+			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl "
+			crossorigin="anonymous "></script>
 
-
-	</div>
-
-	<script src=" https://code.jquery.com/jquery-3.2.1.slim.min.js "
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN "
-		crossorigin="anonymous "></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js "
-		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q "
-		crossorigin="anonymous "></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js "
-		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl "
-		crossorigin="anonymous "></script>
 		
-	<script>
-    function redirectToHome() {
-        var countdownMessageElement = document.getElementById('countdownMessage');
-        var countdown = 5;
-
-        countdownMessageElement.innerText = 'Đang chuyển hướng đến trang chủ sau ' + countdown + ' giây';
-
-        var countdownInterval = setInterval(function() {
-            countdown--;
-            countdownMessageElement.innerText = 'Đang chuyển hướng đến trang chủ sau ' + countdown + ' giây';
-
-            if (countdown <= 0) {
-                clearInterval(countdownInterval);
-                countdownMessageElement.innerText = 'Đang chuyển hướng đến trang chủ...';
-                setTimeout(function() {
-                    window.location.href = "/hoanghamobile"; // Đường dẫn tới trang chủ của bạn
-                }, 2000); // 2000ms = 2 giây
-            }
-        }, 1000); // 1000ms = 1 giây
-    }
-
-    redirectToHome();
-</script>
 </body>
 </html>

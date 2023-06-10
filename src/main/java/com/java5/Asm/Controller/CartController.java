@@ -196,7 +196,7 @@ public class CartController {
 		    	productNames += product.getNameProduct() + "\n";
 		    	orderDetails.insertOrder_Details(product.getQty(), product.getQty()*product.getPrice(), idOrderInsert, product.getIdProduct());
 			}
-		    
+		    Double tong = cart.getAmount();
 		    
 		    //Xóa Cookie
 		    cookie = new Cookie("myCart", "");
@@ -210,7 +210,8 @@ public class CartController {
 						+ "Vui Lòng Xác Nhận Đơn Hàng :" + idOrderInsert +
 						"\n Bạn Hãy Ấn Vào Liên Kết Này Để Xác Nhận Đơn Hàng Vừa Mới Đặt Nhé \n"
 						+ "http://localhost:8080/hoanghamobile/carproduct/xacnhandonhang?MaDH="+idOrderInsert +
-						"Với Các Sản Phẩm Hiện Có " +productNames);
+						"\n Với Các Sản Phẩm Hiện Có : \n  " +productNames+
+						"\n Tổng Số Tiền :" +tong + "VND");
 			} catch (Exception e) {
 				return e.getMessage();
 			}
