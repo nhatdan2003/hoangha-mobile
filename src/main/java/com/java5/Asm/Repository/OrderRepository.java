@@ -12,7 +12,7 @@ import com.java5.Asm.Entity.Order;
 
 import jakarta.transaction.Transactional;
 
-public interface OrderRepository extends JpaRepository<Order, Long>{
+public interface OrderRepository extends JpaRepository<Order, String>{
 	@Transactional
     @Modifying
     @Query(value = "INSERT INTO order_table (id_order,total,date,status,note,id_client) VALUES (?1,?2,?3,?4,?5,?6)", nativeQuery = true)
@@ -39,6 +39,9 @@ public interface OrderRepository extends JpaRepository<Order, Long>{
             "JOIN OrderDetail od ON od.iOrder = o " +
             "WHERE o.idOrder = ?1")
     List<Object[]> findOrderDetailsByOrderId(String idOrder);
+    
+    @Query("SELECT o FROM Order o WHERE o.idOrder = ?1")
+	Order findOrder(String idOrder);
 }
 
 	

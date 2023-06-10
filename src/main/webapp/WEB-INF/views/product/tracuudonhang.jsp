@@ -306,7 +306,7 @@
 				<div class="row text-center">
 				<div class="">
 					<p class=""
-						style="font-size: 30px; margin-top: 10px; margin-left: 350px">Trạng Thái Đơn Hàng : ${status} </p>
+						style="font-size: 30px; margin-top: 10px; margin-left: 350px">Trạng Thái Đơn Hàng :  ${status}</p>
 				</div>
 					<div class="container">
 						<h2>Client Form</h2>
