@@ -14,11 +14,11 @@ import jakarta.transaction.Transactional;
 public interface OrderRepository extends JpaRepository<Order, Long>{
 	@Transactional
     @Modifying
-    @Query(value = "INSERT INTO order_table (total,date,status,note,id_client) VALUES (?1,?2,?3,?4,?5)", nativeQuery = true)
-    void insertOrder(double total, Date date, boolean status, String note, Long iCilent);
+    @Query(value = "INSERT INTO order_table (id_order,total,date,status,note,id_client) VALUES (?1,?2,?3,?4,?5,?6)", nativeQuery = true)
+    void insertOrder(String id_order, double total, Date date, boolean status, String note, Long iCilent);
 	
-	@Query("SELECT o FROM Order o WHERE o.iCilent.idCilent = ?1")
-	List<Object[]> getOrderPropertiesByClientId(Long clientId);
+	@Query("SELECT o FROM Order o WHERE o.idOrder = ?1")
+	Order getOrder(String idOrder);
 
 }
 

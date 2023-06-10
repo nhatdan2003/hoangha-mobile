@@ -170,22 +170,36 @@ public class CartController {
 	
 	@RequestMapping("/hoanghamobile/cartproduct/dathang")
 	public String dathang(Model model , Cilent cilent)  {
+		
 		client.save(cilent);
 		Pageable pl = PageRequest.of(0, 1);
-		List<Cilent> clients = client.findName(cilent.getFullName(),pl );
+		List<Cilent> clients = client.findEmail(cilent.getEmail(),pl );
 		if (!clients.isEmpty()) {
 		    cilent  = clients.get(0);
-		    order.insertOrder(cart.getAmount(), new Date(), false, null, cilent.getIdCilent());
+		    List<Order> listOrder = order.findAll();
+		    String idOrderInsert = String.valueOf("HD"+(listOrder.size()+1));
+		    order.insertOrder(idOrderInsert, cart.getAmount(), new Date(), false, null, cilent.getIdCilent());
+		    Order od = order.getOrder(idOrderInsert);
+		    for (Product product : cart.getItems()) {
+		    	orderDetails.insertOrder_Details(product.getQty(), product.getQty()*product.getPrice(), idOrderInsert, product.getIdProduct());
+			}
+		    cookie = new Cookie("myCart", "");
+		    cookie.setMaxAge(0);
+		    cookie.setPath("/");
+			resp.addCookie(cookie);
+			cart.clear();
 		    // Xử lý kết quả top 1 ở đây
 		} else {
 		    // Không tìm thấy kết quả
 		}
 		
-		
 		return "redirect:/hoanghamobile";
 	}
 	
-	
+	@RequestMapping("/client")
+	public String showForm() {
+		return "product/infoClient";
+	}
 	
 	
 
