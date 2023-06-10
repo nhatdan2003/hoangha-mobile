@@ -2,6 +2,7 @@ package com.java5.Asm.Controller;
 
 import java.nio.charset.StandardCharsets;
 import org.apache.commons.codec.binary.Base64;
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -189,8 +190,10 @@ public class CartController {
 		    List<Order> listOrder = order.findAll();
 		    String idOrderInsert = String.valueOf("HD"+(listOrder.size()+1));
 		    order.insertOrder(idOrderInsert, cart.getAmount(), new Date(), false, null, cilent.getIdCilent());
+		    String productNames = "";
 		    Order od = order.getOrder(idOrderInsert);
 		    for (Product product : cart.getItems()) {
+		    	productNames += product.getNameProduct() + "\n";
 		    	orderDetails.insertOrder_Details(product.getQty(), product.getQty()*product.getPrice(), idOrderInsert, product.getIdProduct());
 			}
 		    
@@ -206,7 +209,8 @@ public class CartController {
 				mailer.send(cilent.getEmail(), "Xác Nhận Đơn Hàng Từ HoangHaMobile", ""
 						+ "Vui Lòng Xác Nhận Đơn Hàng :" + idOrderInsert +
 						"\n Bạn Hãy Ấn Vào Liên Kết Này Để Xác Nhận Đơn Hàng Vừa Mới Đặt Nhé \n"
-						+ "http://localhost:8080/hoanghamobile/carproduct/xacnhandonhang?MaDH="+idOrderInsert);
+						+ "http://localhost:8080/hoanghamobile/carproduct/xacnhandonhang?MaDH="+idOrderInsert +
+						"Với Các Sản Phẩm Hiện Có " +productNames);
 			} catch (Exception e) {
 				return e.getMessage();
 			}
