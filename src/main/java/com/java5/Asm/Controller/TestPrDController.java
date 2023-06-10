@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TestPrDController {
 
 	
-	@RequestMapping("/test")
+	@RequestMapping("/hoanghamobile/xacnhandonhang")
 	public String showForm() {
-		return "product/productDetail";
+		return "product/xacnhandonhang";
 	}
 }

@@ -117,6 +117,7 @@ public class ProductController {
 		Date currentDate = new Date();
 		items.setDate(currentDate);
 		dao.save(items);
+		model.addAttribute("successMessage", "Product created successfully!");
 		return "redirect:/hoanghamobile/products";
 	}
 

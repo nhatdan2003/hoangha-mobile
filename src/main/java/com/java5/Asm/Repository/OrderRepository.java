@@ -20,6 +20,10 @@ public interface OrderRepository extends JpaRepository<Order, Long>{
 	@Query("SELECT o FROM Order o WHERE o.idOrder = ?1")
 	Order getOrder(String idOrder);
 
+	@Transactional
+	@Modifying
+	@Query("UPDATE Order p SET p.status=true WHERE p.idOrder=?1")
+	void updateDonHang(String MaDH);
 }
 
 	
