@@ -20,8 +20,8 @@ public interface OrderDetailsRepository extends JpaRepository<OrderDetail, Long>
     void insertOrder_Details(int qty, double totalprice, String id_order, Long idProduct);
 	
 	
-	 @Query("SELECT o FROM OrderDetail o ")
-		List<OrderDetail> allOrder();
+
+	 
 
 	
 	@Query("SELECT SUM(o.TongGia) FROM OrderDetail o")
